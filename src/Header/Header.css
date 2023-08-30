@@ -1,0 +1,60 @@
+header {
+    box-sizing: border-box;
+    background-color: var(--c-subback);
+    height: 85px;
+    border-radius: 0px 0px 15px 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin: 0px 0px 20px 0px;
+}
+h1 {
+    font-size: 2em;
+    margin: 0px;
+    color: var(--c-maintext);
+}
+
+.menu-label {
+    text-align: end;
+    font-size: 2rem;
+    color: var(--c-accentmain);
+    display: block;
+    margin: 2px;
+}
+
+.menu-button {
+    border: none;
+    margin: 0px 2px;
+    padding: 2px 0px 0px;
+    transition: background-color 0.1s ease-in;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    background-color: var(--c-buttonback);
+    fill: var(--c-background);
+    stroke: var(--c-background);
+}
+
+.menu-button:hover {
+    background-color: var(--c-buttonbackh);
+    cursor: pointer;
+    fill: var(--c-subback);
+    stroke: var(--c-subback);
+}
+.menu-button:hover .detail {
+    stroke: none;
+    fill: var(--c-buttonbackh);
+}
+
+svg {
+    transition: background-color 0.1s ease-in;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    width: 20px;
+}
+.detail {
+    stroke: none;
+    fill: var(--c-buttonback);
+}

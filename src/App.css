@@ -1,38 +1,69 @@
+html {
+    --c-background: #c5dbf0;
+    --c-subback: #98bae6;
+    --c-maintext: #41476e;
+    --c-accentmain: #eef4fa;
+    --c-buttonback: #8499d3;
+    --c-buttonbackh: #717dc0;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--c-background);
+    align-items: center;
+    color: var(--c-maintext);
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  .rounded {
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .pixel {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+.line-spaced {
+    margin: 1rem 0rem;
+}
+
 .App {
-  text-align: center;
+    margin: auto;
+    width: 87.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.page-body {
+    padding: 0px 15px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0px 0px 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.textstuff {
+    height: 12rem;
 }
-
-.App-link {
-  color: #61dafb;
+.gamestuff {
+    height: 50rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gamestack {
+    width: 60rem;
+    height: 50rem;
+    flex-direction: column;
+}
+@media screen and (max-width: 1000px) {
+    
 }

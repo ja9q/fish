@@ -1,0 +1,17 @@
+.display-body {
+    overflow: hidden;
+    height: 75%;
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    background-color: var(--c-accentmain);
+}
+.background {
+    width: 60rem;
+}
+
+.padded {
+    padding: 10px;
+}
+h2{
+    margin: 0px;
+}

@@ -1,0 +1,39 @@
+.log-body {
+
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    width: 39%;
+    flex-grow: 1;
+    color: var(--c-accentmain);
+    padding: 5px;
+    background-color: var(--c-maintext);
+    cursor: context-menu;
+    overflow-y: hidden;
+    position: relative;
+}
+br::selection {
+    background: var(--c-maintext);
+}
+
+
+ul {
+    list-style-type: '> ';
+    padding: 0px;
+    margin: 0px;
+    position:absolute;
+    bottom: 3px;
+    left: 25px;
+}
+li::selection {
+    color: var(--c-maintext);
+    background: var(--c-accentmain);
+}
+li:last-of-type::after {
+    content: "▯"; 
+    animation: blink 1s steps(5, start) infinite;  
+}
+    @keyframes blink{
+        to {
+            visibility: hidden;
+        }
+    }

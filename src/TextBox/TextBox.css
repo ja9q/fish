@@ -1,0 +1,9 @@
+.text-body {
+    width: 49%;
+    color: var(--c-maintext);
+    background-color: var(--c-accentmain);
+    flex-grow: 1;
+}
+p{
+    margin: 0px;
+}
