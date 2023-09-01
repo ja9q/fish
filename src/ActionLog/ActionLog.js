@@ -1,22 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import './ActionLog.css';
 
 
 
-function ActionLog() {
+function ActionLog(props) {
+
 
     return (
       <div className='rounded log-body'>
         <div className='log-text'>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li>item</li>
+            {props.log}
           </ul>
         </div>
       </div>

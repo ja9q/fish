@@ -16,6 +16,13 @@ body {
     color: var(--c-maintext);
 }
 
+button {
+    color: var(--c-maintext);
+    border: none;
+    transition: stroke, fill, color, background-color  0.1s ease-in;
+    cursor: pointer;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -25,7 +32,6 @@ body {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
-
   .rounded {
     border-radius: 10px;
     padding: 10px;
@@ -64,6 +70,13 @@ body {
     height: 50rem;
     flex-direction: column;
 }
+.nongame {
+    background-color:var(--c-accentmain);
+    width: 84.5rem;
+}
 @media screen and (max-width: 1000px) {
     
+}
+h1, h2, h3 {
+    margin: 0px;
 }

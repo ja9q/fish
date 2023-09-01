@@ -1,6 +1,6 @@
 function About() {
     return (
-      <div className="padded">
+      <div className="nongame rounded">
         <h2>about this game</h2>
         <p className="line-spaced"> this is a React web app where you can go fishing by j9s.</p>
         <p className="line-spaced"></p>

@@ -24,10 +24,8 @@ h1 {
 }
 
 .menu-button {
-    border: none;
     margin: 0px 2px;
     padding: 2px 0px 0px;
-    transition: background-color 0.1s ease-in;
     height: 30px;
     width: 30px;
     border-radius: 20px;
@@ -38,7 +36,6 @@ h1 {
 
 .menu-button:hover {
     background-color: var(--c-buttonbackh);
-    cursor: pointer;
     fill: var(--c-subback);
     stroke: var(--c-subback);
 }

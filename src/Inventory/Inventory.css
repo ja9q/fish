@@ -4,3 +4,7 @@
     flex-grow: 1;
     background-color: var(--c-accentmain);
 }
+.inven-section {
+    border-top: 1px var(--c-maintext) solid;
+    padding: 5px 5px 5px 0px;
+}

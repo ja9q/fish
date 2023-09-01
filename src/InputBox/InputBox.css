@@ -1,4 +1,19 @@
 .input-body {
     height: 11.5rem;
-    background-color: var(--c-accentmain);
+    border: var(--c-subback) 3px solid;
+    background-color: var(--c-background);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.act-button {
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: var(--c-subback);
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.act-button:hover {
+    background-color: var(--c-buttonback);
 }
