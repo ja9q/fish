@@ -1,0 +1,24 @@
+{
+    "fish": [
+        {
+            "fishId": 0,
+            "fishName": "",
+            "fishBinomial": "",
+            "fishImage": "",
+            "fishImageAlt": "",
+            "fishFlavor": "",
+            "fishRarity": 0,
+            "size": ""
+        },
+        {
+            "fishId": 1,
+            "fishName": "bluegill",
+            "fishBinomial": "Lepomis macrochirus",
+            "fishImage": "bluegill",
+            "fishImageAlt": "Bluegill - a small fish and the first one to get a sprite.",
+            "fishFlavor": "bluegills are a pretty common fish.",
+            "fishRarity": 0,
+            "size": "small"
+        }
+    ]
+}
