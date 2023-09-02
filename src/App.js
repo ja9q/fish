@@ -22,6 +22,9 @@ function App() {
   const [location, setLocation] = useState({});
   const [flavorText, setFlavor] = useState("");
   const [visual, setVisual] = useState({});
+  const [overlay, setOverlay] = useState({});
+  const [displayFish, setDisplayFish] = useState({});
+  const [isDisplayFish, setFishOnDisplay] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
   const [inputMode, setInput] = useState("new-day");
@@ -38,6 +41,7 @@ function App() {
 
   useEffect(() => {
     addLine("welcome to the fishing game!");
+    setOverlay({"isShowing": false});
   }, []);
 
   function incDay() {
@@ -50,6 +54,8 @@ function App() {
   }
 
   function changeLocation(loc) {
+    setOverlay({"isShowing": false});
+    setDisplayFish(false);
     setLocation(locations[loc]);
     setVisual({image: locations[loc].locationImage, alt: locations[loc].locationImageAlt});
     if (loc !== 1 && loc !== location.locationId)
@@ -58,6 +64,7 @@ function App() {
   }
 
   function biteEvent() {
+    setOverlay({"isShowing": true, "image": "linebite", "alt": "your bob moved because a fish bit it!"});
     changeFlavor("you got a bite!!");
     setBite(true);
     setTimer(setTimeout(() => {setBite(false); changeFlavor("the fish got away..."); setInput("continue");}, 2000));
@@ -65,12 +72,14 @@ function App() {
 
   function castLine() {
     const waitTime = Math.floor(((Math.random() * location.fishWait) + 2) * 1000);
+    setOverlay({"isShowing": true, "image": "linewaiting", "alt": "your bob is floating in the water."});
     changeFlavor("you're waiting for a bite...");
     setTimer(setTimeout(biteEvent, waitTime));
   }
 
 
   function reelIn() {
+    setOverlay({"isShowing": false});
     if(fishBite){
       clearTimeout(timerId);
       const fishGacha = Math.random();
@@ -80,7 +89,9 @@ function App() {
           caughtFish = f.fish;
         }
       });
-      changeFlavor("you reeled in a "+fishes[caughtFish].fishName+"!");
+      setDisplayFish(fishes[caughtFish]);
+      setFishOnDisplay(true);
+      changeFlavor("you reeled in a "+fishes[caughtFish].name+"!");
       setInput("continue");
       setBite(false);
     } else {
@@ -110,7 +121,7 @@ function App() {
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
-            <DisplayBox visual={visual} />
+            <DisplayBox visual={visual} overlay={overlay} hasFish={isDisplayFish} fish={displayFish}  />
             <InputBox  changeLocation={changeLocation} inputMode={inputMode} setInput={setInput} castLine={castLine} reelIn={reelIn} />
           </div>
           <Inventory/>

@@ -24,7 +24,7 @@
             "locationImage": "greenhornlake",
             "locationImageAlt": "Greenhorn Lake",
             "locationFlavor": "greenhorn lake is a popular place for people who want to enjoy the joys of nature, like fishermen.",
-            "fishWait": 7,
+            "fishWait": 7.0,
             "locationFish": [{"fish": 1, "chance": 1.0}]
         }
     ]

@@ -1,10 +1,31 @@
 .display-body {
     overflow: hidden;
-    height: 75%;
+    height: 37.5rem;
     padding: 0px;
     margin: 0px 0px 10px 0px;
+    position: relative;
     background-color: var(--c-accentmain);
 }
 .background {
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
     width: 60rem;
+    height: 37.5rem;
+}
+.overlay {
+    z-index: 2;
+    position: absolute;
+    width: 18rem;
+    height: 22.5rem; 
+    left: 21rem;
+    top: 7.5rem;
+}
+.fish {
+    z-index: 3;
+    position: absolute;
+    width: 15rem;
+    left: 22.5rem;
+    top: 14rem;
 }
