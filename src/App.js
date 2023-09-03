@@ -67,7 +67,7 @@ function App() {
     setOverlay({"isShowing": true, "image": "linebite", "alt": "your bob moved because a fish bit it!"});
     changeFlavor("you got a bite!!");
     setBite(true);
-    setTimer(setTimeout(() => {setBite(false); changeFlavor("the fish got away..."); setInput("continue");}, 2000));
+    setTimer(setTimeout(() => {setBite(false); setOverlay({"isShowing": true, "image": "linenothing", "alt": "you reeled in nothing..."}); changeFlavor("the fish got away..."); setInput("continue");}, 2000));
   }
 
   function castLine() {
@@ -82,7 +82,7 @@ function App() {
     setOverlay({"isShowing": false});
     if(fishBite){
       clearTimeout(timerId);
-      const fishGacha = Math.random();
+      const fishGacha = Math.random()* 100;
       let caughtFish = 0;
       location.locationFish.forEach(f => {
         if (f.chance > fishGacha){
@@ -92,11 +92,13 @@ function App() {
       setDisplayFish(fishes[caughtFish]);
       setFishOnDisplay(true);
       changeFlavor("you reeled in a "+fishes[caughtFish].name+"!");
+      addLine("caught a "+fishes[caughtFish].name+"!");
       setInput("continue");
       setBite(false);
     } else {
       clearTimeout(timerId);
       setInput("continue");
+      setOverlay({"isShowing": true, "image": "linenothing", "alt": "you reeled in nothing..."});
       changeFlavor("you reeled in too quickly! you have no fish...");
     }
   }

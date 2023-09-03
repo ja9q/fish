@@ -19,6 +19,16 @@
             "flavor": "bluegills are a pretty common fish.",
             "rarity": 0,
             "size": "small"
+        }, 
+        {
+            "id": 2,
+            "name": "pumpkinseed",
+            "binomial": "Lepomis gibbosus",
+            "image": "pumpkinseed",
+            "alt": "Pumpkinseed - this is literally a bluegill reskin",
+            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped to me.",
+            "rarity": 0,
+            "size": "small"
         }
     ]
 }
