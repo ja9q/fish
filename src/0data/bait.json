@@ -1,0 +1,26 @@
+{
+    "baits": [
+        {
+            "baitId": 0,
+            "baitName": "",
+            "baitImage": "",
+            "baitImageAlt": "",
+            "baitFlavor": "",
+            "baitTier": 0,
+            "baitTime": 0,
+            "baitPower": 0,
+            "baitEffect": []
+        },
+        {
+            "baitId": 1,
+            "baitName": "Common Bread",
+            "baitImage": "commonbread",
+            "baitImageAlt": "A small chunk of bread",
+            "baitFlavor": "A chunk of bread ripped from a larger loaf of potato bread. It's better than nothing",
+            "baitTier": 0,
+            "baitTime": 0.7,
+            "baitPower": 0.7,
+            "baitEffect": []
+        }
+    ]
+}

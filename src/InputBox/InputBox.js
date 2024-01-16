@@ -5,13 +5,11 @@ function InputBox(props) {
 
     return (
       <div className="rounded noselect input-body">
-        {props.inputMode === "new-day" && 
-        <> 
-          <button className="act-button" onClick={()=> {props.changeLocation(2); props.setInput("at-water")}} >go fishing</button>
-        </>}
         {props.inputMode === "at-water" && 
         <> 
           <button className="act-button" onClick={()=> {props.castLine(); props.setInput("fishing")}} >cast a line</button>
+          <button className="act-button" onClick={()=> {}} >shop</button>
+          <button className="act-button" onClick={()=> {}} >travel</button>
         </>}
         {props.inputMode === "fishing" && 
         <> 
@@ -19,7 +17,7 @@ function InputBox(props) {
         </>}
         {props.inputMode === "continue" && 
         <> 
-          <button className="act-button" onClick={()=> {props.changeLocation(2); props.setInput("at-water")}}>continue fishing</button>
+          <button className="act-button" onClick={()=> {props.clearDisplay(); props.setInput("at-water")}}>continue fishing</button>
         </>}
         
       </div>

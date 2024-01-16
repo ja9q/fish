@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import './App.css';
 
+import { GameContext } from './Contexts/ContextPack.js';
+
 import Header from "./Header/Header.js";
 import ActionLog from "./ActionLog/ActionLog.js";
 import DisplayBox from "./DisplayBox/DisplayBox.js";
@@ -18,7 +20,6 @@ function App() {
   let fishes = require('./0data/fish.json').fish;
 
   const [displayMode, setDisplay] = useState(0);
-  const [dayNumber, setDay] = useState(0);
   const [location, setLocation] = useState({});
   const [flavorText, setFlavor] = useState("");
   const [visual, setVisual] = useState({});
@@ -27,7 +28,7 @@ function App() {
   const [isDisplayFish, setFishOnDisplay] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  const [inputMode, setInput] = useState("new-day");
+  const [inputMode, setInput] = useState("at-water");
   const [fishBite, setBite] = useState(false);
   const [timerId, setTimer] = useState(0);
 
@@ -44,23 +45,23 @@ function App() {
     setOverlay({"isShowing": false});
   }, []);
 
-  function incDay() {
-    setDay(dayNumber+1);
-    addLine("started day "+dayNumber+"!");
-  }
-
   function changeFlavor(t) {
     setFlavor(<p>{t}</p>);
   }
 
   function changeLocation(loc) {
-    setOverlay({"isShowing": false});
-    setDisplayFish(false);
+    clearDisplay();
     setLocation(locations[loc]);
     setVisual({image: locations[loc].locationImage, alt: locations[loc].locationImageAlt});
     if (loc !== 1 && loc !== location.locationId)
       addLine("travelled to "+locations[loc].locationName+".");
     changeFlavor(locations[loc].locationFlavor);
+  }
+
+  function clearDisplay() {
+    setOverlay({"isShowing": false});
+    setDisplayFish(false);
+    changeFlavor(location.locationFlavor);
   }
 
   function biteEvent() {
@@ -116,15 +117,16 @@ function App() {
       <div className='page-body'>
 
         <div className='textstuff section'>
-          <TextBox dayNumber={dayNumber} location={location.locationName} flavorText={flavorText} />
+          <TextBox location={location.locationName} flavorText={flavorText} />
           <ActionLog log={log} />
         </div>
 
+        <GameContext>
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
             <DisplayBox visual={visual} overlay={overlay} hasFish={isDisplayFish} fish={displayFish}  />
-            <InputBox  changeLocation={changeLocation} inputMode={inputMode} setInput={setInput} castLine={castLine} reelIn={reelIn} />
+            <InputBox  changeLocation={changeLocation} clearDisplay={clearDisplay} inputMode={inputMode} setInput={setInput} castLine={castLine} reelIn={reelIn} />
           </div>
           <Inventory/>
           </>
@@ -133,7 +135,7 @@ function App() {
           {displayMode === 2 && <About/>}
           {displayMode === 3 && <Settings/>}
         </div>
-        
+        </GameContext>
       </div>
 
     </div>

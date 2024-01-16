@@ -11,15 +11,6 @@
         },
         {
             "locationId": 1,
-            "locationName": "home",
-            "locationImage": "newday",
-            "locationImageAlt": "Today's a new day!",
-            "locationFlavor": "good morning! it's a wonderful day to go fishing!",
-            "fishWait": 0.0,
-            "locationFish": []
-        },
-        {
-            "locationId": 2,
             "locationName": "greenhorn lake", 
             "locationImage": "greenhornlake",
             "locationImageAlt": "Greenhorn Lake",

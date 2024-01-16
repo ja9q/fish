@@ -24,11 +24,11 @@ ul {
     bottom: 3px;
     left: 25px;
 }
-li::selection {
+ul li::selection {
     color: var(--c-maintext);
     background: var(--c-accentmain);
 }
-li:last-of-type::after {
+ul li:last-of-type::after {
     content: "▯"; 
     animation: blink 1s steps(5, start) infinite;  
 }

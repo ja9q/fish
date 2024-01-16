@@ -1,0 +1,24 @@
+{
+    "rods": [
+        {
+            "rodId": 0,
+            "rodName": "",
+            "rodImage": "",
+            "rodImageAlt": "",
+            "rodFlavor": "",
+            "rodTier": 0,
+            "rodPower": 0,
+            "rodEffect": []
+        },
+        {
+            "rodId": 1,
+            "rodName": "Fishing Rod",
+            "rodImage": "firstrod",
+            "rodImageAlt": "A basic rod",
+            "rodFlavor": "Your first fishing rod. You bought it for $25 from your local retail store.",
+            "rodTier": 0,
+            "rodPower": 0.9,
+            "rodEffect": []
+        }
+    ]
+}
