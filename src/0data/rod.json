@@ -1,24 +1,24 @@
 {
     "rods": [
         {
-            "rodId": 0,
-            "rodName": "",
-            "rodImage": "",
-            "rodImageAlt": "",
-            "rodFlavor": "",
-            "rodTier": 0,
-            "rodPower": 0,
-            "rodEffect": []
+            "id": 0,
+            "name": "",
+            "image": "",
+            "alt": "",
+            "flavor": "",
+            "tier": 0,
+            "power": 0,
+            "properties": []
         },
         {
-            "rodId": 1,
-            "rodName": "Fishing Rod",
-            "rodImage": "firstrod",
-            "rodImageAlt": "A basic rod",
-            "rodFlavor": "Your first fishing rod. You bought it for $25 from your local retail store.",
-            "rodTier": 0,
-            "rodPower": 0.9,
-            "rodEffect": []
+            "id": 1,
+            "name": "Fishing Rod",
+            "image": "firstrod",
+            "amageAlt": "A basic rod",
+            "flavor": "Your first fishing rod. You bought it for $25 from your local retail store.",
+            "tier": 0,
+            "power": 0.9,
+            "properties": []
         }
     ]
 }

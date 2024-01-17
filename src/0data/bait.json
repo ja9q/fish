@@ -1,26 +1,26 @@
 {
     "baits": [
         {
-            "baitId": 0,
-            "baitName": "",
-            "baitImage": "",
-            "baitImageAlt": "",
-            "baitFlavor": "",
-            "baitTier": 0,
-            "baitTime": 0,
-            "baitPower": 0,
-            "baitEffect": []
+            "id": 0,
+            "name": "",
+            "image": "",
+            "alt": "",
+            "flavor": "",
+            "tier": 0,
+            "time": 0,
+            "power": 0,
+            "properties": []
         },
         {
-            "baitId": 1,
-            "baitName": "Common Bread",
-            "baitImage": "commonbread",
-            "baitImageAlt": "A small chunk of bread",
-            "baitFlavor": "A chunk of bread ripped from a larger loaf of potato bread. It's better than nothing",
-            "baitTier": 0,
-            "baitTime": 0.7,
-            "baitPower": 0.7,
-            "baitEffect": []
+            "id": 1,
+            "name": "Common Bread",
+            "image": "commonbread",
+            "alt": "A small chunk of bread",
+            "flavor": "A chunk of bread ripped from a larger loaf of potato bread. It's better than nothing",
+            "tier": 0,
+            "time": 0.7,
+            "power": 0.7,
+            "properties": []
         }
     ]
 }

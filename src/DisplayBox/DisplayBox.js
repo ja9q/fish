@@ -1,5 +1,7 @@
 import './DisplayBox.css';
 
+import { useGDisplay } from '../0contexts/GameDisplayContext';
+
 function importImages(r) {
   let images = {};
   r.keys().forEach((item, index) => { images[item.replace('./', '').replace('.png', '')] = r(item); });
@@ -11,13 +13,14 @@ const sprites = importImages(require.context('../0assets/sprites', false, /\.(pn
 const misc = importImages(require.context('../0assets/misc', false, /\.(png)$/));
 
 
-function DisplayBox({visual, overlay, hasFish, fish}) {
+function DisplayBox() {
+  const gdisplay = useGDisplay();
     return (
       <div className="rounded noselect display-body">
-        {hasFish && <img draggable={false} className='pixel fish' src={sprites[fish.image]} alt={fish.alt}/>}
-        {overlay.isShowing && <img draggable={false} className='pixel overlay' src={misc[overlay.image]} alt={overlay.alt}/>}
+        {gdisplay.showsFish && <img draggable={false} className='pixel fish' src={sprites[gdisplay.fish.image]} alt={gdisplay.fish.alt}/>}
+        {gdisplay.showsOverlay && <img draggable={false} className='pixel overlay' src={misc[gdisplay.overlay.image]} alt={gdisplay.overlay.alt}/>}
         {/* 8:5 display */}
-        <img draggable={false} className='pixel background' src={backgrounds[visual.image]} alt={visual.alt}/>
+        <img draggable={false} className='pixel background' src={backgrounds[gdisplay.visual.image]} alt={gdisplay.visual.alt}/>
         
       </div>
     );
