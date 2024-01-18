@@ -1,6 +1,5 @@
 import './DisplayBox.css';
 
-import { useGDisplay } from '../0contexts/GameDisplayContext';
 
 function importImages(r) {
   let images = {};
@@ -13,8 +12,8 @@ const sprites = importImages(require.context('../0assets/sprites', false, /\.(pn
 const misc = importImages(require.context('../0assets/misc', false, /\.(png)$/));
 
 
-function DisplayBox() {
-  const gdisplay = useGDisplay();
+function DisplayBox({gdisplay}) {
+
     return (
       <div className="rounded noselect display-body">
         {gdisplay.showsFish && <img draggable={false} className='pixel fish' src={sprites[gdisplay.fish.image]} alt={gdisplay.fish.alt}/>}

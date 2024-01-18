@@ -1,8 +1,5 @@
 import './Inventory.css';
 
-import { useInventory } from '../0contexts/InventoryContext';
-import { useInventoryDispatch } from '../0contexts/InventoryContext';
-
 let bait = require('../0data/bait.json').baits;
 let rod = require('../0data/rod.json').rods;
 let fish = require('../0data/fish.json').fish;
@@ -17,26 +14,25 @@ function Item({item}) {
   );
 }
 
-function InvenSection(props) {
-  const inventory = useInventory();
+function InvenSection({sectionName, inventory, inventoryDispatch}) {
   const itemList = inventory.map(item => {
-    if ((props.sectionName === "Gear" && item.type !== "fish") || (props.sectionName === "Fish" && item.type === "fish"))
+    if ((sectionName === "Gear" && item.type !== "fish") || (sectionName === "Fish" && item.type === "fish"))
      return <Item item={item}/>
   });
   return(
     <div className='inven-section'>
-          <strong>{props.sectionName}</strong> <br/>
+          <strong>{sectionName}</strong> <br/>
           {itemList}
     </div>
   );
 }
 
-function Inventory() {
+function Inventory({inventory, inventoryDispatch}) {
     return (
       <div className="rounded noselect inventory-body">
         <h2>Inventory</h2>
-        <InvenSection sectionName={"Gear"}/>
-        <InvenSection sectionName={"Fish"}/>
+        <InvenSection sectionName={"Gear"} inventory={inventory} inventoryDispatch={inventoryDispatch} />
+        <InvenSection sectionName={"Fish"} inventory={inventory} inventoryDispatch={inventoryDispatch} />
         
       </div>
     );

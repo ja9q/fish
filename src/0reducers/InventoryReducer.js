@@ -1,32 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
-
-export const InventoryContext = createContext(null);
-export const InventoryDispatchContext = createContext(null);
-
-export function useInventory() {
-    return useContext(InventoryContext);
-}
-
-export function useInventoryDispatch() {
-    return useContext(InventoryDispatchContext);
-}
-
-export function InventoryProvider({ children }) {
-  const [inventory, dispatch] = useReducer(
-    inventoryReducer,
-    initialInventory
-  );
-
-  return (
-    <InventoryContext.Provider value={inventory}>
-      <InventoryDispatchContext.Provider value={dispatch}>
-        {children}
-      </InventoryDispatchContext.Provider>
-    </InventoryContext.Provider>
-  );
-}
-
-function inventoryReducer(inventory, action) {
+export function inventoryReducer(inventory, action) {
 switch (action.type) {
     case 'add': {
         return addItem(inventory, action);
@@ -43,7 +15,7 @@ switch (action.type) {
 }
 }
 
-const initialInventory = [
+export const initialInventory = [
     { type:"rod", id: 1, count: 1, equipped: true },
     { type:"bait", id: 1, count: 1, equipped: true }
 ];
@@ -52,7 +24,7 @@ const initialInventory = [
 function addItem(inventory, action) {
     let newItem = true;
     let temp =  inventory.map(t => {
-        if (t.id === action.item.id) {
+        if (action.item.type === t.type && t.id === action.item.id) {
             newItem = false;
             t.count += action.count;
             return t;

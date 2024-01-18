@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 
 import './App.css';
 
-import { GameContext } from './0contexts/ContextPack.js';
+import { inventoryReducer, initialInventory } from './0reducers/InventoryReducer.js';
+import { gdisplayReducer, initialGDisplay } from './0reducers/GameDisplayReducer.js';
 
 import Header from "./Header/Header.js";
 import ActionLog from "./ActionLog/ActionLog.js";
@@ -19,13 +20,14 @@ function App() {
 
   let locations = require('./0data/locations.json').locations;
   
+  const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
+  const [gdisplay, gdisplayDispatch] = useReducer(gdisplayReducer, initialGDisplay);
 
   const [displayMode, setDisplay] = useState(0);
   const [location, setLocation] = useState({});
   const [flavorText, setFlavor] = useState("");
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  const [inputMode, setInput] = useState("at-water");
   
 
   function addLine(l) {
@@ -54,14 +56,6 @@ function App() {
   //   changeFlavor(locations[loc].locationFlavor);
   // }
 
-
-  
-
-
-  useEffect(() => {
-    
-  }, []);
-
   return (
     <div className="App">
 
@@ -74,21 +68,19 @@ function App() {
           <ActionLog log={log} />
         </div>
 
-        <GameContext>
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
-            <DisplayBox />
-            <InputBox  inputMode={inputMode} setInput={setInput}  />
+            <DisplayBox gdisplay={gdisplay} />
+            <InputBox gdisplayDispatch={gdisplayDispatch} inventoryDispatch={initialInventory} setFlavor={setFlavor} location={location} setLocation={setLocation} />
           </div>
-          <Inventory/>
+          <Inventory inventory={inventory} inventoryDispatch={inventoryDispatch} />
           </>
           }
           {displayMode === 1 && <Records/>}
           {displayMode === 2 && <About/>}
           {displayMode === 3 && <Settings/>}
         </div>
-        </GameContext>
       </div>
 
     </div>
