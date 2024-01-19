@@ -7,3 +7,23 @@
 p{
     margin: 0px;
 }
+.flavor-sprite {
+    vertical-align: middle;
+    display: inline;
+    margin: 17px 7px;
+    width: 10%;
+}
+.flavor-body {
+    border-top: 1px var(--c-maintext) solid;
+    padding: 2px 5px;
+    height: 100%;
+    width:100%;
+    font-size: 1.4rem;
+    flex-direction:column;
+}
+.side-text {
+    vertical-align: middle;
+    margin: 5px 0px 0px;
+    width: 85%;
+    float: right;
+}

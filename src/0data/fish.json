@@ -3,9 +3,9 @@
         {
             "id": 0,
             "name": "",
-            "binomial": "",
-            "image": "",
-            "alt": "",
+            "subtitle": "",
+            "image": {"image": "",
+                "alt": ""},
             "flavor": "",
             "rarity": 0,
             "size": ""
@@ -13,20 +13,20 @@
         {
             "id": 1,
             "name": "Bluegill",
-            "binomial": "Lepomis macrochirus",
-            "image": "bluegill",
-            "alt": "Bluegill - a small fish and the first one to get a sprite.",
+            "subtitle": "Lepomis macrochirus",
+            "image": {"image": "bluegill",
+                "alt": "Bluegill - a small fish and the first one to get a sprite."},
             "flavor": "bluegills are a pretty common fish.",
             "rarity": 0,
             "size": "small"
         }, 
         {
             "id": 2,
-            "name": "pumpkinseed",
-            "binomial": "Lepomis gibbosus",
-            "image": "pumpkinseed",
-            "alt": "Pumpkinseed - this is literally a bluegill reskin",
-            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. Maybe there's a more pumpkind seed shaped one out there.",
+            "name": "Pumpkinseed",
+            "subtitle": "Lepomis gibbosus",
+            "image": {"image": "pumpkinseed",
+                "alt": "Pumpkinseed - this is literally a bluegill reskin"},
+            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. maybe there's a more pumpkind seed shaped one out there...",
             "rarity": 0,
             "size": "small"
         }

@@ -22,7 +22,7 @@
     left: 21rem;
     top: 7.5rem;
 }
-.fish {
+.item {
     z-index: 3;
     position: absolute;
     width: 15rem;

@@ -3,8 +3,9 @@
         {
             "id": 0,
             "name": "",
-            "image": "",
-            "alt": "",
+            "subtitle": "",
+            "image": {"image": "",
+                "alt": ""},
             "flavor": "",
             "tier": 0,
             "power": 0,
@@ -13,9 +14,10 @@
         {
             "id": 1,
             "name": "Fishing Rod",
-            "image": "firstrod",
-            "amageAlt": "A basic rod",
-            "flavor": "Your first fishing rod. You bought it for $25 from your local retail store.",
+            "subtitle": "it can get a job done",
+            "image": {"image": "firstrod",
+                "alt": "A basic rod"},
+            "flavor": "your first fishing rod. it cost you $25 at your local retail store.",
             "tier": 0,
             "power": 0.9,
             "properties": []

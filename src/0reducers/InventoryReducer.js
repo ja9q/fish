@@ -17,7 +17,7 @@ switch (action.type) {
 
 export const initialInventory = [
     { type:"rod", id: 1, count: 1, equipped: true },
-    { type:"bait", id: 1, count: 1, equipped: true }
+    { type:"bait", id: 1, count: 10, equipped: true }
 ];
     
 
@@ -47,14 +47,14 @@ function addItem(inventory, action) {
 
 function removeItem(inventory, action) {
     let temp = inventory.map(t => {
-        if (t.id === action.item.id) {
+        if (t.type === action.item.type && t.id === action.item.id) {
             t.count -= action.count;
-            return (t.count <= 0) 
+            return t;
         } else {
             return t;
         }
     });
-    return temp.filter(t => (t.count > 0 && (t.type !== "equipment" && t.id !== 2)));
+    return temp.filter(t => (t.count > 0));
 }
 
 function equipItem(inventory, action) {
