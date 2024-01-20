@@ -4,6 +4,7 @@
     font-family: 'Courier New', Courier, monospace;
     width: 39%;
     flex-grow: 1;
+    font-size: 1.4rem;
     color: var(--c-accentmain);
     padding: 5px;
     background-color: var(--c-maintext);

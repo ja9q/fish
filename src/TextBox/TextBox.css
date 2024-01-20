@@ -27,3 +27,9 @@ p{
     width: 85%;
     float: right;
 }
+.text-top {
+    display: flex;
+    padding: 0px 4px 0px 0px;
+    justify-content: space-between;
+    width: 100%;
+}

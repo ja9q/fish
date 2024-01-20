@@ -22,6 +22,20 @@
             "tier": 0,
             "time": 0.7,
             "power": 0.7,
+            "price": 0.0,
+            "properties": []
+        },
+        {
+            "id": 2,
+            "name": "Worm",
+            "subtitle": "don't get too attached",
+            "image": {"image": "worm",
+                "alt": "one worm. not a nightcrawler"},
+            "flavor": "a single live worm, they're kept in a small container with dirt so they can continue worming away from home. i hope nobody's girlfriend is in here.",
+            "tier": 0,
+            "time": 0,
+            "power": 0,
+            "price": 5.0,
             "properties": []
         }
     ]

@@ -1,12 +1,13 @@
 import './Inventory.css';
 
 import { displayItem, displayLocation } from '../0scripts/TextBoxScript';
+import { sellItem } from '../0scripts/InventoryScript';
 
 let bait = require('../0data/bait.json').baits;
 let rod = require('../0data/rod.json').rods;
 let fish = require('../0data/fish.json').fish;
 
-function Item({item}) {
+function Item({item, atShop, money}) {
 
   function getItem() {
     switch(item.type) {
@@ -23,17 +24,17 @@ function Item({item}) {
   const i = getItem(item);
 
   return(
-    <span className='inven-item'  onMouseOver={() => {displayItem(i)}} onMouseLeave={displayLocation}>
+    <span className={(item.type === "fish" && atShop) ? 'inven-item sellable' : 'inven-item'} onClick={() => {if (item.type === "fish" && atShop) {sellItem(item, i.price)}}}  onMouseOver={() => {displayItem(i)}} onMouseLeave={displayLocation}>
       <span>{i.name}{item.equipped && <> (E)</>}{item.type !== 'rod' && <> - {item.count}</>}</span>
-      <span>x</span>
+      {item.type === "fish" && atShop && <span>${i.price.toFixed(2)}</span>}
     </span> 
   );
 }
 
-function InvenSection({sectionName, inventory, inventoryDispatch}) {
+function InvenSection({sectionName, inventory, atShop}) {
   const itemList = inventory.map(item => {
     if ((sectionName === "Gear" && item.type !== "fish") || (sectionName === "Fish" && item.type === "fish"))
-     return <Item item={item}/>
+     return <Item item={item} atShop={atShop} />
   });
   return(
     <div className='inven-section'>
@@ -43,12 +44,12 @@ function InvenSection({sectionName, inventory, inventoryDispatch}) {
   );
 }
 
-function Inventory({inventory, inventoryDispatch}) {
+function Inventory({inventory, atShop, money}) {
     return (
       <div className="rounded noselect inventory-body">
-        <h2>Inventory</h2>
-        <InvenSection sectionName={"Gear"} inventory={inventory} inventoryDispatch={inventoryDispatch} />
-        <InvenSection sectionName={"Fish"} inventory={inventory} inventoryDispatch={inventoryDispatch} />
+        <span className='inventory-top'><h2>Inventory </h2>${money.toFixed(2)}</span>
+        <InvenSection sectionName={"Gear"} inventory={inventory} atShop={atShop} />
+        <InvenSection sectionName={"Fish"} inventory={inventory} atShop={atShop} />
         
       </div>
     );

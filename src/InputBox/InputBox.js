@@ -3,7 +3,7 @@ import './InputBox.css';
 import { castLine, reelIn } from '../0scripts/FishingScript';
 import { displayLocation } from '../0scripts/TextBoxScript';
 
-function InputBox({inputMode, setInputMode, gdisplayDispatch, location}) {
+function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop}) {
 
   
 
@@ -12,7 +12,7 @@ function InputBox({inputMode, setInputMode, gdisplayDispatch, location}) {
       {inputMode === "at-water" && 
       <> 
         <button className="act-button" onClick={()=> {castLine(); setInputMode("fishing")}}>cast a line</button>
-        <button className="act-button" onClick={()=> {}} >shop</button>
+        <button className="act-button" onClick={()=> {setShop(true); setInputMode("at-shop")}} >shop</button>
         <button className="act-button" onClick={()=> {}} >travel</button>
       </>}
       {inputMode === "fishing" && 
@@ -22,6 +22,10 @@ function InputBox({inputMode, setInputMode, gdisplayDispatch, location}) {
       {inputMode === "continue" && 
       <> 
         <button className="act-button" onClick={()=> {gdisplayDispatch({"type": "clearDisplay"}); setInputMode("at-water"); displayLocation()}}>continue fishing</button>
+      </>}
+      {inputMode === "at-shop" && 
+      <> 
+        <button className="act-button" onClick={()=> {setShop(false); setInputMode("at-water");}}>exit shop</button>
       </>}
       
     </div>

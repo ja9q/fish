@@ -25,7 +25,9 @@
 .item {
     z-index: 3;
     position: absolute;
+    margin-left: 40%;
+    margin-right: -40%;
+    margin-top: 20%;
+    margin-bottom: -20%;
     width: 15rem;
-    left: 22.5rem;
-    top: 14rem;
 }

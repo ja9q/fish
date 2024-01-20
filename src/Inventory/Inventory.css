@@ -10,11 +10,30 @@
     width:100%
 }
 .inven-item {
+    border-radius: 5px;
     display:flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    padding: 0px 5px;
+    padding: 1px 5px;
 }
 .inven-item:nth-child(even) {
     background-color: var(--c-background);
+}
+.sellable:hover {
+    cursor:pointer;
+    transition: background-color ease-in 0.1s;
+    background-color: var(--c-background);
+}
+.sellable:nth-child(even):hover {
+    cursor:pointer;
+    transition: background-color ease-in 0.1s;
+    background-color: var(--c-subback);
+}
+.inventory-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+h2{
+    display: inline
 }

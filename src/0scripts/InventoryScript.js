@@ -1,4 +1,4 @@
-import { getInventory, getInventoryDispatch } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getWallet, getWalletSetter } from './ScriptImports';
 
 let bait = require('../0data/bait.json').baits;
 let rod = require('../0data/rod.json').rods;
@@ -51,6 +51,10 @@ export function printInventory() {
     alert(i);
 }
 
-export function sellItem(i) {
+export function sellItem(i, price) {
+    const setWallet = getWalletSetter();
+    const inventoryDispatch = getInventoryDispatch();
 
+    setWallet(getWallet() + price);
+    inventoryDispatch({"type": "remove", "count": 1, "item": i})
 }

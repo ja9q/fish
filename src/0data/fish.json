@@ -16,9 +16,10 @@
             "subtitle": "Lepomis macrochirus",
             "image": {"image": "bluegill",
                 "alt": "Bluegill - a small fish and the first one to get a sprite."},
-            "flavor": "bluegills are a pretty common fish.",
+            "flavor": "bluegills are a pretty common fish. though their gills aren't /that/ blue, they're surprisingly colorful.",
             "rarity": 0,
-            "size": "small"
+            "size": "small",
+            "price": 1.20
         }, 
         {
             "id": 2,
@@ -26,9 +27,10 @@
             "subtitle": "Lepomis gibbosus",
             "image": {"image": "pumpkinseed",
                 "alt": "Pumpkinseed - this is literally a bluegill reskin"},
-            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. maybe there's a more pumpkind seed shaped one out there...",
+            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. maybe there's a more pumpkin seed shaped one out there...",
             "rarity": 0,
-            "size": "small"
+            "size": "small",
+            "price": 2.20
         }
     ]
 }

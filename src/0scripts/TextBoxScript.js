@@ -1,4 +1,4 @@
-import { getTextboxDispatch, getLocation } from "./ScriptImports";
+import { getTextboxDispatch, getLocation, getAtShop } from "./ScriptImports";
 
 
 export function displayItem(item) {
@@ -15,5 +15,11 @@ export function displayLocation() {
     const location = getLocation();
     textboxDispatch({"type": "reset"});
     textboxDispatch({"type": "setHeader", "new": location.name});
-    textboxDispatch({"type": "setFlavor", "new": location.flavor});
+    if(!getAtShop()){
+        textboxDispatch({"type": "setFlavor", "new": location.flavor});
+    } else {
+        textboxDispatch({"type": "setFlavor", "new": "welcome to the shop! you can buy the displayed items or sell your fish by clicking on them from your inventory."});
+        textboxDispatch({"type": "setSubheader", "new": "the shop"});
+    }
+    
 }

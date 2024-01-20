@@ -3,6 +3,7 @@ import { useState, useEffect, useReducer } from 'react';
 import './App.css';
 
 import { initScriptImports } from './0scripts/ScriptImports.js';
+import { displayLocation } from './0scripts/TextBoxScript.js';
 
 import { inventoryReducer, initialInventory } from './0reducers/InventoryReducer.js';
 import { gdisplayReducer, initialGDisplay } from './0reducers/GameDisplayReducer.js';
@@ -27,9 +28,10 @@ function App() {
   const [displayMode, setDisplay] = useState(0);
   const [location, setLocation] = useState(locations[1]);
   const [inputMode, setInputMode] = useState("at-water");
+  const [atShop, setShop] = useState(false);
   const [newLine, setLine] = useState(false);
-  const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  
+  const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
+  const [money, setMoney] = useState(0.00);  
 
   const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
   const [gdisplay, gdisplayDispatch] = useReducer(gdisplayReducer, initialGDisplay);
@@ -49,11 +51,15 @@ function App() {
     setLine(!newLine);
   }
 
-  initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine);
+  initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, money, setMoney);
 
   useEffect(() => {
     addLine("welcome to the fishing game!");
   }, []);
+
+  useEffect(() => {
+    displayLocation();
+  }, [atShop]);
 
   return (
     <div className="App">
@@ -70,10 +76,10 @@ function App() {
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} />
-            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} />
+            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} />
           </div>
-          <Inventory inventory={inventory} inventoryDispatch={inventoryDispatch} />
+          <Inventory inventory={inventory} atShop={atShop}  money={money} />
           </>
           }
           {displayMode === 1 && <Records/>}
