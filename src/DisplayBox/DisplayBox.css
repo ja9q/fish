@@ -2,6 +2,9 @@
     overflow: hidden;
     height: 37.5rem;
     padding: 0px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     margin: 0px 0px 10px 0px;
     position: relative;
     background-color: var(--c-accentmain);
@@ -19,15 +22,62 @@
     position: absolute;
     width: 18rem;
     height: 22.5rem; 
-    left: 21rem;
-    top: 7.5rem;
 }
 .item {
-    z-index: 3;
+    z-index: 2;
     position: absolute;
-    margin-left: 40%;
-    margin-right: -40%;
-    margin-top: 20%;
-    margin-bottom: -20%;
-    width: 15rem;
+    height: 10rem;
+}
+.shop-list {
+    display:flex;
+    justify-content: space-between;
+    padding: 8rem 10rem;
+    flex-direction: row;
+    gap: 7px;
+}
+.shop-listing {
+    display:flex;
+    color: var(--c-accentmain);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.288);
+    border: solid 3px rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    width: 12rem;
+}
+.shop-listing:hover {
+    border: solid 3px rgba(255, 255, 255, 0.4);
+}
+.shop-item {
+    width: 7rem;
+    margin: 0px 0px 10px;
+}
+.buy-button {
+    font-weight:bolder;
+    border: 2px solid var(--c-maintext);
+    color: var(--c-maintext);
+    width: 5rem;
+    margin: 7px 0px 0px;
+    background-color: var(--c-subback);
+}
+.buy-button:hover {
+    cursor:pointer;
+    color: var(--c-maintext);
+    width: 5rem;
+    background-color: var(--c-buttonback);
+}
+.unavailable {
+    pointer-events: none;
+    background-color: var(--c-maintext);
+    color: var(--c-accentmain)
+}
+.center-items {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }

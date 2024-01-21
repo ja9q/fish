@@ -31,6 +31,16 @@
             "rarity": 0,
             "size": "small",
             "price": 2.20
+        },
+        {
+            "id": 0,
+            "name": "Smallmouth Bass",
+            "subtitle": "Micropterus dolomieu",
+            "image": {"image": "smallmouthbass",
+                "alt": "a green fish with a white body"},
+            "flavor": "smallmouth bass are a very popular fish among fishermen. their dedicated article on wikipedia doesn't talk about their mouth once.",
+            "rarity": 0,
+            "size": "small"
         }
     ]
 }

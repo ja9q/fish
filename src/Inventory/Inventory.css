@@ -37,3 +37,14 @@
 h2{
     display: inline
 }
+.equip-button {
+    font-size: 1.4rem;
+    padding: 0px 5px;
+    background-color: var(--c-background);
+    border-radius: 5px;
+}
+.equip-button:hover {
+    cursor:pointer;
+    transition: background-color ease-in 0.1s;
+    background-color: var(--c-subback);
+}

@@ -16,7 +16,11 @@
                 "alt": "Greenhorn Lake"},
             "flavor": "greenhorn lake is a popular place for people who want to enjoy the joys of nature, like fishermen.",
             "fishWait": 2.0,
-            "fish": [{"fish": 1, "chance": 100},{"fish": 2, "chance": 40}]
+            "fish": [{"fish": 1, "chance": 100},{"fish": 2, "chance": 40}],
+            "shop": [
+                {"listing": "5 chunks of bread", "item": {"type": "bait", "id": 1}, "flavor": "some simple carbs. it can only attract some very basic types of fish", "count": 5, "restocks": true},
+                {"listing": "pack of 10 worms", "item": {"type": "bait", "id": 2}, "flavor": "a plastic container of live worms. they work better than bread.", "count": 10, "restocks": true},
+                {"listing": "port fishing pass", "item": {"type": "other", "id": 1}, "flavor": "something that lets you fish at the port", "count": 1, "restocks": false}]
         }
     ]
 }

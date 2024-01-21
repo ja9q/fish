@@ -14,15 +14,15 @@
         },
         {
             "id": 1,
-            "name": "Bread Chunk",
+            "name": "Bread",
             "subtitle": "from your sandwich",
             "image": {"image": "commonbread",
                 "alt": "A small chunk of bread"},
-            "flavor": "a chunk of bread ripped from a larger loaf of potato bread. it's better than nothing",
+            "flavor": "a chunk of bread ripped from a larger loaf of potato bread. it's more suited for humans than fish",
             "tier": 0,
             "time": 0.7,
             "power": 0.7,
-            "price": 0.0,
+            "price": 1.0,
             "properties": []
         },
         {
@@ -31,11 +31,11 @@
             "subtitle": "don't get too attached",
             "image": {"image": "worm",
                 "alt": "one worm. not a nightcrawler"},
-            "flavor": "a single live worm, they're kept in a small container with dirt so they can continue worming away from home. i hope nobody's girlfriend is in here.",
-            "tier": 0,
-            "time": 0,
-            "power": 0,
-            "price": 5.0,
+            "flavor": "a single live worm, they're kept in a small container with dirt so they can continue worming away from home. i hope this isn't anybody's girlfriend.",
+            "tier": 1,
+            "time": 1.0,
+            "power": 0.8,
+            "price": 0.5,
             "properties": []
         }
     ]

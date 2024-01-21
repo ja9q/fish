@@ -31,7 +31,7 @@ function App() {
   const [atShop, setShop] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  const [money, setMoney] = useState(0.00);  
+  const [wallet, setWallet] = useState(0.00);  
 
   const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
   const [gdisplay, gdisplayDispatch] = useReducer(gdisplayReducer, initialGDisplay);
@@ -51,7 +51,7 @@ function App() {
     setLine(!newLine);
   }
 
-  initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, money, setMoney);
+  initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet);
 
   useEffect(() => {
     addLine("welcome to the fishing game!");
@@ -76,10 +76,10 @@ function App() {
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} atShop={atShop} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} />
             <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} />
           </div>
-          <Inventory inventory={inventory} atShop={atShop}  money={money} />
+          <Inventory inventory={inventory} atShop={atShop}  wallet={wallet} />
           </>
           }
           {displayMode === 1 && <Records/>}

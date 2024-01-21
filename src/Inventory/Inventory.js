@@ -1,56 +1,81 @@
+import { useState, useEffect } from 'react';
+
 import './Inventory.css';
 
 import { displayItem, displayLocation } from '../0scripts/TextBoxScript';
-import { sellItem } from '../0scripts/InventoryScript';
+import { getItem, sellItem, equipItem } from '../0scripts/InventoryScript';
 
-let bait = require('../0data/bait.json').baits;
-let rod = require('../0data/rod.json').rods;
-let fish = require('../0data/fish.json').fish;
+function Item({item, atShop}) {
 
-function Item({item, atShop, money}) {
+  const [mouseOver, setMouseOver] = useState(false);
 
-  function getItem() {
-    switch(item.type) {
-      case 'bait':
-        return bait[item.id];
-      case 'rod':
-        return rod[item.id];
-      case 'fish':
-        return fish[item.id];
-      default:
-        return "test";
-    }
-  }
   const i = getItem(item);
 
   return(
-    <span className={(item.type === "fish" && atShop) ? 'inven-item sellable' : 'inven-item'} onClick={() => {if (item.type === "fish" && atShop) {sellItem(item, i.price)}}}  onMouseOver={() => {displayItem(i)}} onMouseLeave={displayLocation}>
+    <span className={(item.type === "fish" && atShop) ? 'inven-item sellable' : 'inven-item'} onClick={() => {if (item.type === "fish" && atShop) {sellItem(item, i.price)}}}  onMouseOver={() => {displayItem(i); setMouseOver(true)}} onMouseLeave={() => {displayLocation(); setMouseOver(false)}}>
       <span>{i.name}{item.equipped && <> (E)</>}{item.type !== 'rod' && <> - {item.count}</>}</span>
       {item.type === "fish" && atShop && <span>${i.price.toFixed(2)}</span>}
+      {item.equipped && <> (E)</>}
+      {(!item.equipped && item.type !== "fish" && item.type !== "other" && mouseOver) && 
+      <span className='equip-button' onClick={() => {equipItem(item)}}>Equip</span> }
     </span> 
   );
 }
 
-function InvenSection({sectionName, inventory, atShop}) {
-  const itemList = inventory.map(item => {
-    if ((sectionName === "Gear" && item.type !== "fish") || (sectionName === "Fish" && item.type === "fish"))
+function InvenSection({sectionName, items, atShop}) {
+  const equippedItems = items.map(item => {
+    if (item.equipped)
+     return <Item item={item} atShop={atShop} />
+  });
+
+  const itemList = items.map(item => {
+    if (!item.equipped)
      return <Item item={item} atShop={atShop} />
   });
   return(
-    <div className='inven-section'>
+
+      <div className='inven-section'>
+        
           <strong>{sectionName}</strong> <br/>
+          {sectionName === "Gear" && equippedItems}
           {itemList}
+        
     </div>
   );
 }
 
-function Inventory({inventory, atShop, money}) {
+
+
+function Inventory({inventory, atShop, wallet}) {
+
+  const [sortedInventory, setSorted] = useState({"gear": [], "fish": [], "misc": []});
+
+  useEffect(() => {
+    const temp = {"gear": [], "fish": [], "misc": []}
+    inventory.forEach(item => {
+      switch (item.type) {
+        case 'fish':
+          temp.fish.push(item);
+          break;
+        case 'rod':
+          temp.gear.push(item);
+          break;
+        case 'bait':
+          temp.gear.push(item);
+          break;
+        default:
+          temp.misc.push(item);
+          break;
+      }
+      setSorted(temp)
+    })}, [inventory])
+
     return (
       <div className="rounded noselect inventory-body">
-        <span className='inventory-top'><h2>Inventory </h2>${money.toFixed(2)}</span>
-        <InvenSection sectionName={"Gear"} inventory={inventory} atShop={atShop} />
-        <InvenSection sectionName={"Fish"} inventory={inventory} atShop={atShop} />
-        
+        <span className='inventory-top'><h2>Inventory </h2>${wallet.toFixed(2)}</span>
+        <InvenSection sectionName={"Gear"} items={sortedInventory.gear} atShop={atShop} />
+        {sortedInventory.fish.length > 0 && <InvenSection sectionName={"Fish"} items={sortedInventory.fish} atShop={atShop} />}
+        {sortedInventory.misc.length > 0 && <InvenSection sectionName={"Misc"} items={sortedInventory.misc} atShop={atShop} />}
       </div>
     );
   }

@@ -1,0 +1,25 @@
+{
+    "others": [
+        {
+            "id": 0,
+            "name": "",
+            "subtitle": "",
+            "image": {"image": "",
+                "alt": ""},
+            "flavor": "",
+            "price": 0.0,
+            "properties": []
+        },
+        {
+            "id": 1,
+            "name": "Port Fishing Pass",
+            "subtitle": "ready up, you're on dock",
+            "image": {"image": "portpass",
+                "alt": "a small plastic card illustrated with a small dock"},
+            "flavor": "this card lets you travel to the port!",
+            "price": 20.0,
+            "properties": ["port-entry"]
+        }
+
+    ]
+}

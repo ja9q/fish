@@ -23,3 +23,17 @@ export function displayLocation() {
     }
     
 }
+
+export function displayListing(listing, price, item, canBuy, inStock)
+{
+    const textboxDispatch = getTextboxDispatch();
+    const cannotBuy = " (too expensive)"
+    const notStocked = " (no longer in stock)"
+    let subheader = (canBuy) ? "$"+price.toFixed(2) : "$"+price.toFixed(2) + cannotBuy;
+    subheader = (inStock) ? subheader : "$"+price.toFixed(2) + notStocked;
+    textboxDispatch({"type": "setHeader", "new": listing.listing});
+    textboxDispatch({"type": "setSubheader", "new": subheader});
+    textboxDispatch({"type": "setFlavor", "new": listing.flavor});
+    textboxDispatch({"type": "setSprite", "new": item.image});
+    textboxDispatch({"type": "showSprite"});
+}
