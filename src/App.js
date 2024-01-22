@@ -29,6 +29,7 @@ function App() {
   const [location, setLocation] = useState(locations[1]);
   const [inputMode, setInputMode] = useState("at-water");
   const [atShop, setShop] = useState(false);
+  const [atTravel, setTravel] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
   const [wallet, setWallet] = useState(0.00);  
@@ -76,10 +77,10 @@ function App() {
         <div className='gamestuff section'>
         {displayMode === 0 && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} />
-            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} />
+            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel />
           </div>
-          <Inventory inventory={inventory} atShop={atShop}  wallet={wallet} />
+          <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
           </>
           }
           {displayMode === 1 && <Records/>}

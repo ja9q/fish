@@ -8,7 +8,8 @@
                 "alt": ""},
             "flavor": "",
             "rarity": 0,
-            "size": ""
+            "size": "",
+            "price": 0.0
         },
         {
             "id": 1,
@@ -33,14 +34,37 @@
             "price": 2.20
         },
         {
-            "id": 0,
+            "id": 3,
             "name": "Smallmouth Bass",
             "subtitle": "Micropterus dolomieu",
             "image": {"image": "smallmouthbass",
                 "alt": "a green fish with a white body"},
             "flavor": "smallmouth bass are a very popular fish among fishermen. their dedicated article on wikipedia doesn't talk about their mouth once.",
-            "rarity": 0,
-            "size": "small"
+            "rarity": 1,
+            "size": "small",
+            "price": 4.50
+        },
+        {
+            "id": 4,
+            "name": "Channel Catfish",
+            "subtitle": " Ictalurus punctatus",
+            "image": {"image": "channelcatfish",
+                "alt": "a sleek-looking fish with 3 pairs of whiskers (which is incorrect)"},
+            "flavor": "Channel Catfish live in channels of water and lack the means to live in channels of any other medium. you may see them in certain tv channels though.",
+            "rarity": 1,
+            "size": "small",
+            "price": 4.0
+        },
+        {
+            "id": 5,
+            "name": "Black Crappie",
+            "subtitle": "Pomoxis nigromaculatus",
+            "image": {"image": "blackcrappie",
+                "alt": "a deep green fish covered with black speckles"},
+            "flavor": "Black Crappies are one of the two crappie species. Their name comes from the Canadian French \"crapet\" despite what people might first assume.",
+            "rarity": 1,
+            "size": "small",
+            "price": 2.5
         }
     ]
 }

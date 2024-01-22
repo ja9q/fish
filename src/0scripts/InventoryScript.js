@@ -1,4 +1,6 @@
-import { getInventory, getInventoryDispatch, getWallet, getWalletSetter } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getWallet, getWalletSetter, getAddLine } from './ScriptImports';
+import click_light from '../0assets/sfx/click_light.mp3'
+import money_sfx from '../0assets/sfx/money_sfx.mp3'
 
 let bait = require('../0data/bait.json').baits;
 let rod = require('../0data/rod.json').rods;
@@ -22,7 +24,7 @@ export function getEquippedBait() {
     const inventory = getInventory();
     let equippedBait = null;
 
-    const temp = inventory.map((item) => {
+    inventory.forEach((item) => {
         if (item.type === "bait" && item.equipped){
             equippedBait = item;
         }
@@ -32,11 +34,14 @@ export function getEquippedBait() {
 
 export function getEquippedRod() {
     const inventory = getInventory();
+    let equippedRod = null;
+
     inventory.forEach(item => {
-        if (item.type == "rod" && item.isEquipped){
-            return item;
+        if (item.type === "rod" && item.equipped){
+            equippedRod = item;
         }
     });
+    return equippedRod;
 }
 
 export function expendBait() {
@@ -48,11 +53,11 @@ export function expendBait() {
     if (equippedBait !== null)
     {
         inventoryDispatch({"type": "remove", "count": 1, "item": equippedBait});
-        return true;
+        return equippedBait;
     }
     
-    // return false because there is no bait
-    return false;
+    // return null because there is no bait
+    return null;
 }
 
 export function printInventory() {
@@ -65,32 +70,46 @@ export function printInventory() {
 }
 
 export function sellItem(item, price) {
+    const sfx = new Audio(money_sfx)
+    sfx.play();
     const setWallet = getWalletSetter();
     const inventoryDispatch = getInventoryDispatch();
+    const addLine = getAddLine();
 
+    
+    addLine("Sold the " + getItem(item).name + ". (+$"+price.toFixed(2)+")");
     setWallet(getWallet() + price);
     inventoryDispatch({"type": "remove", "count": 1, "item": item})
 }
 
 export function buyItem(listing, price) {
+    const sfx = new Audio(money_sfx)
+    sfx.play();
+    const addLine = getAddLine();
     const setWallet = getWalletSetter();
     const inventoryDispatch = getInventoryDispatch();
 
+    addLine("Bought the " + listing.listing + "! (-$"+price.toFixed(2)+")");
     setWallet(getWallet() - price);
     inventoryDispatch({"type": "add", "count": listing.count, "item": listing.item})
 }
 
 export function hasItem(target) {
+    let result = false;
     const inventory = getInventory();
     inventory.forEach(item => {
         if(item.type === target.type && item.id === target.id)
-            return true;
+            result = true;
     })
-    return false
+    return result;
 }
 
 export function equipItem(target) {
+    const sfx = new Audio(click_light)
+    sfx.play();
+    const addLine = getAddLine();
     const inventoryDispatch = getInventoryDispatch();
 
+    addLine("Equipped the " + getItem(target).name + " ("+target.type+")")
     inventoryDispatch({"type": "equip", "item": target})
 }
