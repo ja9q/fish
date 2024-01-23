@@ -1,14 +1,12 @@
 import './DisplayBox.css';
 
-import ShopItem from './ShopItem';
+import ShopList from './ShopList';
+import TravelList from './TravelList';
 
 import { backgrounds, sprites, miscImg } from '../0scripts/GeneralScript';
 
 
-function DisplayBox({gdisplay, atShop, shop, wallet}) {
-
-  const shopListing = shop.map((item) => 
-    <ShopItem listing={item} wallet={wallet} />);
+function DisplayBox({gdisplay, atShop, shop, wallet, atTravel}) {
 
     return (
       <div className="rounded noselect display-body">
@@ -16,13 +14,8 @@ function DisplayBox({gdisplay, atShop, shop, wallet}) {
         {gdisplay.showsOverlay && <img draggable={false} className='pixel overlay' src={miscImg[gdisplay.overlay.image]} alt={gdisplay.overlay.alt}/>}
         {/* 8:5 display */}
         <img draggable={false} className='pixel background' src={backgrounds[gdisplay.visual.image]} alt={gdisplay.visual.alt}/>
-        {atShop && <>
-          <img draggable={false} className='pixel background' src={backgrounds["shop"]} alt={"the shop is just an overlay. there's no dedicated background."}/>
-          <div className='shop-list'>
-            {shopListing}
-          </div>
-        </>
-        }
+        {atShop && <ShopList shop={shop} wallet={wallet} />}
+        {atTravel && <TravelList />}
       </div>
     );
   }

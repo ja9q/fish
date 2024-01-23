@@ -1,11 +1,9 @@
 import { getInventory, getInventoryDispatch, getWallet, getWalletSetter, getAddLine } from './ScriptImports';
+import { bait, rod, fish, miscItems } from './GeneralScript';
 import click_light from '../0assets/sfx/click_light.mp3'
 import money_sfx from '../0assets/sfx/money_sfx.mp3'
 
-let bait = require('../0data/bait.json').baits;
-let rod = require('../0data/rod.json').rods;
-let fish = require('../0data/fish.json').fish;
-let miscItems = require('../0data/others.json').others;
+
 
 export function getItem(item) {
     switch(item.type) {

@@ -66,7 +66,7 @@ function equipItem(inventory, action) {
     });
 
     return inventory.map(t => {
-        if(t.id === action.item.id && t.type !== "fish"){
+        if(t.id === action.item.id && t.type !== "fish" && t.type === action.item.type){
             t.equipped = true;
         }
         return t;

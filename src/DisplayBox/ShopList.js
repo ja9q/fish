@@ -38,5 +38,20 @@ function ShopItem({listing, wallet}) {
   );
 }
 
-export default ShopItem;
+function ShopList({shop, wallet}) {
+
+  const shopListing = shop.map((item) => 
+    <ShopItem listing={item} wallet={wallet} />);
+
+  return (
+  <>
+    <img draggable={false} className='pixel background' src={backgrounds["shop"]} alt={"the shop is just an overlay. there's no dedicated background."}/>
+    <div className='shop-list'>
+      {shopListing}
+    </div>
+  </>
+  );
+}
+
+export default ShopList;
   

@@ -5,10 +5,10 @@ import click01 from '../0assets/sfx/click_01.mp3'
 
 import { castLine, reelIn } from '../0scripts/FishingScript';
 import { displayLocation } from '../0scripts/TextBoxScript';
+import { hasItem } from '../0scripts/InventoryScript.js';
 
 
-
-function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop}) {
+function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop, setTravel}) {
 
   const [sfx_click01] = useSound(click01);
 
@@ -17,8 +17,8 @@ function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop}) {
       {inputMode === "at-water" && 
       <> 
         <button className="act-button" onClick={() => {sfx_click01(); castLine()}}>cast a line</button>
-        <button className="act-button" onClick={()=> {sfx_click01(); setShop(true); setInputMode("at-shop")}} >shop</button>
-        <button className="act-button" onClick={()=> {sfx_click01(); }} >travel</button>
+        <button className="act-button" onClick={()=> {sfx_click01(); setShop(true); setInputMode("at-overlay")}} >shop</button>
+        {(hasItem({"type": "other", "id": 1})) && <button className="act-button" onClick={()=> {sfx_click01(); setTravel(true); setInputMode("at-overlay")}} >travel</button>}
       </>}
       {inputMode === "fishing" && 
       <> 
@@ -28,9 +28,9 @@ function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop}) {
       <> 
         <button className="act-button" onClick={()=> {sfx_click01(); gdisplayDispatch({"type": "clearDisplay"}); setInputMode("at-water"); displayLocation()}}>continue fishing</button>
       </>}
-      {inputMode === "at-shop" && 
+      {(inputMode === "at-overlay") && 
       <> 
-        <button className="act-button" onClick={()=> {sfx_click01(); setShop(false); setInputMode("at-water");}}>exit shop</button>
+        <button className="act-button" onClick={()=> {sfx_click01(); setShop(false); setTravel(false); setInputMode("at-water");}}>exit</button>
       </>}
       
     </div>

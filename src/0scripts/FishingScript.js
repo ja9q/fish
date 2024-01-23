@@ -1,10 +1,10 @@
 import { expendBait, printInventory } from './InventoryScript';
+import { fish } from './GeneralScript';
 import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine } from './ScriptImports';
 import { getEquippedRod, getItem } from './InventoryScript';
 import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
 
-let fishes = require('../0data/fish.json').fish;
 
 
 
@@ -34,7 +34,7 @@ export function castLine () {
         timerId = setTimeout(biteEvent, biteTimer * 1000);
     } else {
         alert("you don't have any bait equipped!")
-        setInputMode("continue");
+        setInputMode("at-water");
     }
     
 }
@@ -65,12 +65,12 @@ export function reelIn() {
         gdisplayDispatch({"type": "clearDisplay"});
         clearTimeout(timerId);
         let caughtFish = generateFish(location.fish);
-        gdisplayDispatch({"type": "setFish", "newImage": fishes[caughtFish].image});
+        gdisplayDispatch({"type": "setFish", "newImage": fish[caughtFish].image});
         gdisplayDispatch({"type": "showFish"});
 
-        textboxDispatch({"type": "setFlavor", "new": "you reeled in a "+fishes[caughtFish].name+"!"});
-        addLine("Caught a "+fishes[caughtFish].name+"!");
-        inventoryDispatch({"type": "add", "item": {"type": "fish", "id": fishes[caughtFish].id}, "count": 1});
+        textboxDispatch({"type": "setFlavor", "new": "you reeled in a "+fish[caughtFish].name+"!"});
+        addLine("Caught a "+fish[caughtFish].name+"!");
+        inventoryDispatch({"type": "add", "item": {"type": "fish", "id": fish[caughtFish].id}, "count": 1});
         hasBite = false;
     } else {
         clearTimeout(timerId);
@@ -88,7 +88,7 @@ function generateFish(locationFish) {
     const fishGacha = Math.random()* 100;
     let caughtFish = 0;
     locationFish.forEach(f => {
-    if (f.chance > fishGacha && fishes[f.fish].rarity <= maxFishTier){
+    if (f.chance > fishGacha && fish[f.fish].rarity <= maxFishTier){
         caughtFish = f.fish;
     }
     });

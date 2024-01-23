@@ -7,7 +7,10 @@
                 "alt": ""},
             "flavor": "",
             "fishWait": 0.0,
-            "fish": []
+            "fish": [{"fish": 1, "chance": 100}],
+            "shop": [
+                {"listing": "", "item": {"type": "", "id": 0}, "flavor": "", "count": 0, "restocks": true}
+            ]
         },
         {
             "id": 1,
@@ -21,6 +24,18 @@
                 {"listing": "5 chunks of bread", "item": {"type": "bait", "id": 1}, "flavor": "some simple carbs. it can only attract some very basic types of fish", "count": 5, "restocks": true},
                 {"listing": "pack of 10 worms", "item": {"type": "bait", "id": 2}, "flavor": "a plastic container of live worms. they work better than bread.", "count": 10, "restocks": true},
                 {"listing": "port fishing pass", "item": {"type": "other", "id": 1}, "flavor": "something that lets you fish at the port", "count": 1, "restocks": false}]
+        },
+        {
+            "id": 2,
+            "name": "Canted Port",
+            "image": {"image": "cantedport",
+                "alt": "a view of the ocean with wooden a dock extending into the water. the dock's planks look a bit crookied"},
+            "flavor": "canted port was designed by a local artist who wanted to bring color and pizazz to visitors. The unique planks are still there, but the paint washed off on the first day of its reveal.",
+            "fishWait": 3.0,
+            "fish": [{"fish": 1, "chance": 100}],
+            "shop": [
+                {"listing": "better rod", "item": {"type": "rod", "id": 2}, "flavor": "not only does it look cooler, but it works better too", "count": 1, "restocks": false}
+            ]
         }
     ]
 }

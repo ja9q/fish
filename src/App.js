@@ -20,7 +20,6 @@ import TextBox from "./TextBox/TextBox.js";
 import InputBox from "./InputBox/InputBox.js";
 
 
-
 function App() {
 
   let locations = require('./0data/locations.json').locations;
@@ -78,7 +77,7 @@ function App() {
         {displayMode === 0 && <>
           <div className='gamestack'>
             <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} />
-            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel />
+            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} />
           </div>
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
           </>

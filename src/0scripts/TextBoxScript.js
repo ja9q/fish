@@ -13,6 +13,7 @@ export function displayItem(item) {
 export function displayLocation() {
     const textboxDispatch = getTextboxDispatch();
     const location = getLocation();
+
     textboxDispatch({"type": "reset"});
     textboxDispatch({"type": "setHeader", "new": location.name});
     if(!getAtShop()){

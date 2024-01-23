@@ -18,7 +18,27 @@
                 "alt": "a small plastic card illustrated with a small dock"},
             "flavor": "this card lets you travel to the port!",
             "price": 20.0,
-            "properties": ["port-entry"]
+            "properties": []
+        },
+        {
+            "id": 2,
+            "name": "River Fishing Pass",
+            "subtitle": "",
+            "image": {"image": "",
+                "alt": ""},
+            "flavor": "",
+            "price": 0.0,
+            "properties": []
+        },
+        {
+            "id": 3,
+            "name": "Ocean Fishing Pass",
+            "subtitle": "",
+            "image": {"image": "",
+                "alt": ""},
+            "flavor": "",
+            "price": 0.0,
+            "properties": []
         }
 
     ]

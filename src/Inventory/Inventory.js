@@ -66,9 +66,10 @@ function Inventory({inventory, atShop, wallet}) {
         default:
           temp.misc.push(item);
           break;
-      }
-      setSorted(temp)
-    })}, [inventory])
+      }});
+      
+      setSorted(temp);
+    }, [inventory])
 
     return (
       <div className="rounded noselect inventory-body">

@@ -9,7 +9,8 @@
             "flavor": "",
             "tier": 0,
             "power": 0,
-            "properties": []
+            "properties": [],
+            "price": 0.0
         },
         {
             "id": 1,
@@ -20,7 +21,20 @@
             "flavor": "your first fishing rod. it cost you $25 at your local retail store.",
             "tier": 0,
             "power": 0.9,
-            "properties": []
+            "properties": [],
+            "price": 10.0
+        },
+        {
+            "id": 2,
+            "name": "Better Rod",
+            "subtitle": "it can do a better job",
+            "image": {"image": "betterrod",
+                "alt": "A fish rod made of blue material"},
+            "flavor": "a fishing rod made out of more strong material. the ",
+            "tier": 2,
+            "power": 1.0,
+            "properties": [],
+            "price": 30.0
         }
     ]
 }

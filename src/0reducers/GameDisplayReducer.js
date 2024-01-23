@@ -7,8 +7,8 @@ export const initialGDisplay =
 
 export function gdisplayReducer(gdisplay, action) {
 switch (action.type) {
-    case 'changeLocation': {
-        return changeVisual(gdisplay, action);
+    case 'setVisual': {
+        return setVisual(gdisplay, action);
     }
     case 'clearDisplay': {
         return clearDisplay(gdisplay);
@@ -31,7 +31,7 @@ switch (action.type) {
 }
 }
 
-function changeVisual(gdisplay, action) {
+function setVisual(gdisplay, action) {
     return {"visual": action.newImage,
         "showsOverlay": false,
         "showsFish": false,
