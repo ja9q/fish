@@ -11,7 +11,7 @@ let atShopExport = null;
 let walletExport = null;
 let setWalletExport = null;
 
-export function initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet) {
+export function initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet) {   
     inventoryExport = inventory;
     inventoryDispatchExport = inventoryDispatch;
     gdisplayExport = gdisplay;

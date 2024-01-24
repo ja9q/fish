@@ -2,6 +2,7 @@ export const initialGDisplay =
     {"visual": {"image": "greenhornlake", "alt": "Greenhorn Lake"},
     "showsOverlay": false,
     "showsFish": false,
+    "showsQTE": false,
     "overlay": {"image": "", "alt": ""},
     "fishDisplay": {"image": "", "alt": ""}};
 
@@ -19,6 +20,9 @@ switch (action.type) {
     case 'showFish': {
         return showFish(gdisplay);
     }
+    case 'showQTE': {
+        return showQTE(gdisplay,action)
+    }
     case 'setOverlay': {
         return setOverlay(gdisplay, action);
     }
@@ -31,51 +35,65 @@ switch (action.type) {
 }
 }
 
-function setVisual(gdisplay, action) {
-    return {"visual": action.newImage,
-        "showsOverlay": false,
-        "showsFish": false,
+function clone(gdisplay) {
+    return {"visual": gdisplay.visual,
+        "showsOverlay": gdisplay.showsOverlay,
+        "showsFish": gdisplay.showsFish,
+        "showsQTE": gdisplay.showsQTE,
         "overlay": gdisplay.overlay,
         "fishDisplay": gdisplay.fishDisplay};
+}
+
+function setVisual(gdisplay, action) {
+    let temp = clone(gdisplay);
+    temp.showsOverlay = false;
+    temp.showsFish = false;
+    temp.showsQTE = false;
+    temp.visual = action.newImage;
+    return temp;
 }
 
 function clearDisplay(gdisplay) {
-    return {"visual": gdisplay.visual,
-        "showsOverlay": false,
-        "showsFish": false,
-        "overlay": gdisplay.overlay,
-        "fishDisplay": gdisplay.fishDisplay};
+    let temp = clone(gdisplay);
+    temp.showsOverlay = false;
+    temp.showsFish = false;
+    temp.showsQTE = false;
+    return temp;
 }
 
 function showOverlay(gdisplay) {
-    return {"visual": gdisplay.visual,
-        "showsOverlay": true,
-        "showsFish": false,
-        "overlay": gdisplay.overlay,
-        "fishDisplay": gdisplay.fishDisplay};
+    let temp = clone(gdisplay);
+    temp.showsOverlay = true;
+    temp.showsFish = false;
+    temp.showsQTE = false;
+    return temp;
 }
 
 function showFish(gdisplay) {
-    return {"visual": gdisplay.visual,
-        "showsOverlay": false,
-        "showsFish": true,
-        "overlay": gdisplay.overlay,
-        "fishDisplay": gdisplay.fishDisplay};
+    let temp = clone(gdisplay);
+    temp.showsOverlay = false;
+    temp.showsFish = true;
+    temp.showsQTE = false;
+    return temp;
+}
+
+function showQTE(gdisplay) {
+    let temp = clone(gdisplay);
+    temp.showsOverlay = false;
+    temp.showsFish = false;
+    temp.showsQTE = true;
+    return temp;
 }
 
 function setOverlay(gdisplay, action) {
-    return {"visual": gdisplay.visual,
-        "showsOverlay": gdisplay.showsOverlay,
-        "showsFish": gdisplay.showsFish,
-        "overlay": action.newImage,
-        "fishDisplay": gdisplay.fishDisplay};
+    let temp = clone(gdisplay);
+    temp.overlay = action.newImage;
+    return temp;
 }
 
 function setFish(gdisplay, action) {
-    return {"visual": gdisplay.visual,
-        "showsOverlay": gdisplay.showsOverlay,
-        "showsFish": gdisplay.showsFish,
-        "overlay": gdisplay.overlay,
-        "fishDisplay": action.newImage};
+    let temp = clone(gdisplay);
+    temp.fishDisplay = action.newImage;
+    return temp;
 }
 

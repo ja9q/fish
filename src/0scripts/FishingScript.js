@@ -6,16 +6,11 @@ import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
 
 
-
-
 let timerId = null;
 let usedBait = null;
 let hasBite = false;
 
 export function castLine () {
-
-    
-
     const setInputMode = getInputSetter();
     const inventory = getInventory();
     const inventoryDispatch = getInventoryDispatch();
@@ -59,6 +54,8 @@ export function reelIn() {
     const addLine = getAddLine();
 
     if(hasBite){
+
+
         
         let sfx = new Audio(water_splash)
         sfx.play()
@@ -77,6 +74,21 @@ export function reelIn() {
         gdisplayDispatch({"type": "setOverlay", "newImage": {"image": "linenothing", "alt": "you reeled in nothing..."}});
         textboxDispatch({"type": "setFlavor", "new": "you reeled in too quickly! you have no fish..."});
     }
+}
+
+function fishingQTE() {
+    // useEffect(() => {
+    //     // set up the animations
+    //     const id = setInterval(() => setCursor((oldCount) => {return (oldCount >= 360) ? 0 :oldCount + 1.5}), 1);
+    //     setFishTravel(setInterval(() => {setFish((oldFish) => {return oldFish + 0.1})}, 100));
+    // }, []);
+
+    // useEffect(() => {
+    //     // stop the fish slide animation when the fish reaches the red zone
+    //     if (fishPos >= 39)
+    //         clearInterval(fishTravel);
+    // }, [fishPos])
+
 }
 
 function generateFish(locationFish) {

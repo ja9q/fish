@@ -8,6 +8,7 @@ import { displayLocation } from './0scripts/TextBoxScript.js';
 import { inventoryReducer, initialInventory } from './0reducers/InventoryReducer.js';
 import { gdisplayReducer, initialGDisplay } from './0reducers/GameDisplayReducer.js';
 import { textboxReducer } from './0reducers/TextBoxReducer.js';
+import { qteReducer, initialQTE } from './0reducers/QTEReducer';
 
 import Header from "./Header/Header.js";
 import ActionLog from "./ActionLog/ActionLog.js";
@@ -23,6 +24,8 @@ import InputBox from "./InputBox/InputBox.js";
 function App() {
 
   let locations = require('./0data/locations.json').locations;
+
+  const [isLoaded, setLoaded] = useState(false);
 
   const [displayMode, setDisplay] = useState(0);
   const [location, setLocation] = useState(locations[1]);
@@ -41,6 +44,7 @@ function App() {
     "flavorText": locations[1].flavor,
     "sprite": {},
     "showsSprite": false});
+  const [qte, qteDispatch] = useReducer(qteReducer, initialQTE);
   
   function addLine(l) {
     const temp = log;
@@ -51,9 +55,9 @@ function App() {
     setLine(!newLine);
   }
 
-  initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet);
-
   useEffect(() => {
+    initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, qte, qteDispatch);
+    setLoaded(true);
     addLine("welcome to the fishing game!");
   }, []);
 
@@ -74,9 +78,9 @@ function App() {
         </div>
 
         <div className='gamestuff section'>
-        {displayMode === 0 && <>
+        {(displayMode === 0 && isLoaded) && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} />
             <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} />
           </div>
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
