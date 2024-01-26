@@ -1,6 +1,6 @@
 import { expendBait, printInventory } from './InventoryScript';
 import { fish } from './GeneralScript';
-import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getQteDispatch, getQTE } from './ScriptImports';
 import { getEquippedRod, getItem } from './InventoryScript';
 import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
@@ -77,17 +77,10 @@ export function reelIn() {
 }
 
 function fishingQTE() {
-    // useEffect(() => {
-    //     // set up the animations
-    //     const id = setInterval(() => setCursor((oldCount) => {return (oldCount >= 360) ? 0 :oldCount + 1.5}), 1);
-    //     setFishTravel(setInterval(() => {setFish((oldFish) => {return oldFish + 0.1})}, 100));
-    // }, []);
+    const gdisplayDispatch = getGDisplayDispatch();
+    const qteDispatch = getQteDispatch();
 
-    // useEffect(() => {
-    //     // stop the fish slide animation when the fish reaches the red zone
-    //     if (fishPos >= 39)
-    //         clearInterval(fishTravel);
-    // }, [fishPos])
+    gdisplayDispatch({"type": "showQTE"});
 
 }
 
