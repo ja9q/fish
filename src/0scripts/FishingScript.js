@@ -82,6 +82,19 @@ function fishingQTE() {
 
     gdisplayDispatch({"type": "showQTE"});
 
+    
+    // useEffect(() => {
+    //     // set up the animations
+    //     const id = setInterval(() => setCursor((oldCount) => {return (oldCount >= 360) ? 0 :oldCount + 1.5}), 1);
+    //     setFishTravel(setInterval(() => {setFish((oldFish) => {return oldFish + 0.1})}, 100));
+    // }, []);
+
+    // useEffect(() => {
+    //     // stop the fish slide animation when the fish reaches the red zone
+    //     if (fishPos >= 39)
+    //         clearInterval(fishTravel);
+    // }, [fishPos])
+
 }
 
 function generateFish(locationFish) {
