@@ -2,7 +2,7 @@ import { useState, useEffect, useReducer } from 'react';
 
 import './App.css';
 
-import { initScriptImports } from './0scripts/ScriptImports.js';
+import { initScriptImports, updateImports } from './0scripts/ScriptImports.js';
 import { displayLocation } from './0scripts/TextBoxScript.js';
 
 import { inventoryReducer, initialInventory } from './0reducers/InventoryReducer.js';
@@ -56,10 +56,14 @@ function App() {
   }
 
   useEffect(() => {
-    initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, qte, qteDispatch);
+    initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet);
     setLoaded(true);
     addLine("welcome to the fishing game!");
   }, []);
+
+  useEffect(() => {
+    updateImports(inventory, wallet, location, atShop);
+  }, [inventory, wallet, location, atShop]);
 
   useEffect(() => {
     displayLocation();

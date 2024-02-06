@@ -1,6 +1,5 @@
 let inventoryExport = null;
 let inventoryDispatchExport = null;
-let gdisplayExport = null;
 let gdisplayDispatchExport = null;
 let locationExport = null;
 let setLocationExport = null;
@@ -13,10 +12,9 @@ let setWalletExport = null;
 let qteExport = null;
 let qteDispatchExport = null;
 
-export function initScriptImports(inventory, inventoryDispatch, gdisplay, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, qte, qteDispatch) {   
+export function initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, qte, qteDispatch) {   
     inventoryExport = inventory;
     inventoryDispatchExport = inventoryDispatch;
-    gdisplayExport = gdisplay;
     gdisplayDispatchExport = gdisplayDispatch;
     locationExport = location;
     setLocationExport = setLocation;
@@ -30,16 +28,19 @@ export function initScriptImports(inventory, inventoryDispatch, gdisplay, gdispl
     qteDispatchExport = qteDispatch;
 }
 
+export function updateImports(inventory, wallet, location, atShop) {
+    inventoryExport = inventory;
+    walletExport = wallet;
+    locationExport = location;
+    atShopExport = atShop;
+}
+
 export function getInventory() {
     return inventoryExport;
 }
 
 export function getInventoryDispatch() {
     return inventoryDispatchExport;
-}
-
-export function getGDisplay() {
-    return gdisplayExport;
 }
 
 export function getGDisplayDispatch() {

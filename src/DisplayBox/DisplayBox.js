@@ -14,7 +14,7 @@ function DisplayBox({gdisplay, atShop, shop, wallet, atTravel, qte, qteDispatch}
         {gdisplay.showsFish && <img draggable={false} className='pixel item' src={sprites[gdisplay.fishDisplay.image]} alt={gdisplay.fishDisplay.alt}/>}
         {gdisplay.showsOverlay && <img draggable={false} className='pixel overlay' src={miscImg[gdisplay.overlay.image]} alt={gdisplay.overlay.alt}/>}
         {/* 8:5 display */}
-        {true && <QuickTime qte={qte} qteDispatch={qteDispatch} /> }
+        {false && <QuickTime qte={qte} qteDispatch={qteDispatch} /> }
         <img draggable={false} className='pixel background' src={backgrounds[gdisplay.visual.image]} alt={gdisplay.visual.alt}/>
         {atShop && <ShopList shop={shop} wallet={wallet} />}
         {atTravel && <TravelList />}
