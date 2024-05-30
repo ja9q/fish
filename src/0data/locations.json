@@ -34,6 +34,7 @@
             "fishWait": 3.0,
             "fish": [{"fish": 1, "chance": 100}],
             "shop": [
+                {"listing": "pack of 10 worms", "item": {"type": "bait", "id": 2}, "flavor": "a plastic container of live worms. they work better than bread.", "count": 10, "restocks": true},
                 {"listing": "better rod", "item": {"type": "rod", "id": 2}, "flavor": "not only does it look cooler, but it works better too", "count": 1, "restocks": false}
             ]
         }

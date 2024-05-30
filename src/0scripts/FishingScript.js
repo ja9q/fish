@@ -1,9 +1,10 @@
 import { expendBait, printInventory } from './InventoryScript';
 import { fish } from './GeneralScript';
-import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getQteDispatch, getQTE } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getRecordsDispatch } from './ScriptImports';
 import { getEquippedRod, getItem } from './InventoryScript';
 import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
+import Records from '../NonGame/Records';
 
 
 let timerId = null;
@@ -35,10 +36,13 @@ export function castLine () {
 }
 
 function biteEvent() {
+
     let drip = new Audio(water_drip)
     drip.play();
     const gdisplayDispatch = getGDisplayDispatch();
     const textboxDispatch = getTextboxDispatch();
+    const recordDispatch = getRecordsDispatch();
+    recordDispatch({"type": "bite"});
     hasBite = true;
     const setInputMode = getInputSetter();
     gdisplayDispatch({"type": "setOverlay", "newImage": {"image": "linebite", "alt": "your bob moved because a fish bit it!"}});
@@ -50,6 +54,7 @@ export function reelIn() {
     const inventoryDispatch = getInventoryDispatch();
     const gdisplayDispatch = getGDisplayDispatch();
     const textboxDispatch = getTextboxDispatch();
+    const recordDispatch = getRecordsDispatch();
     const location = getLocation();
     const addLine = getAddLine();
 
@@ -71,33 +76,15 @@ export function reelIn() {
         hasBite = false;
     } else {
         clearTimeout(timerId);
+        recordDispatch({"type": "failedCatch"});
         gdisplayDispatch({"type": "setOverlay", "newImage": {"image": "linenothing", "alt": "you reeled in nothing..."}});
-        textboxDispatch({"type": "setFlavor", "new": "you reeled in too quickly! you have no fish..."});
+        textboxDispatch({"type": "setFlavor", "new": "you reeled in too quickly! you have no fish..."});  
     }
 }
 
-function fishingQTE() {
-    const gdisplayDispatch = getGDisplayDispatch();
-    const qteDispatch = getQteDispatch();
-
-    gdisplayDispatch({"type": "showQTE"});
-
-    
-    // useEffect(() => {
-    //     // set up the animations
-    //     const id = setInterval(() => setCursor((oldCount) => {return (oldCount >= 360) ? 0 :oldCount + 1.5}), 1);
-    //     setFishTravel(setInterval(() => {setFish((oldFish) => {return oldFish + 0.1})}, 100));
-    // }, []);
-
-    // useEffect(() => {
-    //     // stop the fish slide animation when the fish reaches the red zone
-    //     if (fishPos >= 39)
-    //         clearInterval(fishTravel);
-    // }, [fishPos])
-
-}
-
 function generateFish(locationFish) {
+    const recordDispatch = getRecordsDispatch();
+
     const baitTier = getItem(usedBait).tier;
     const rodTier = getItem(getEquippedRod()).tier;
 
@@ -110,5 +97,8 @@ function generateFish(locationFish) {
         caughtFish = f.fish;
     }
     });
+
+    recordDispatch({"type": "caughtFish", "fish": caughtFish});
+
     return caughtFish;
 }

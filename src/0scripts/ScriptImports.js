@@ -9,23 +9,21 @@ let addLineExport = null;
 let atShopExport = null;
 let walletExport = null;
 let setWalletExport = null;
-let qteExport = null;
-let qteDispatchExport = null;
+let recordsDispatchExport = null;
 
-export function initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, qte, qteDispatch) {   
-    inventoryExport = inventory;
-    inventoryDispatchExport = inventoryDispatch;
-    gdisplayDispatchExport = gdisplayDispatch;
-    locationExport = location;
-    setLocationExport = setLocation;
-    textboxDispatchExport = textboxDispatch;
-    setInputModeExport = setInputMode;
-    addLineExport = addLine;
-    atShopExport = atShop;
-    walletExport = wallet;
-    setWalletExport = setWallet;
-    qteExport = qte;
-    qteDispatchExport = qteDispatch;
+export function initScriptImports() {   
+    inventoryExport = arguments[0];
+    inventoryDispatchExport = arguments[1];
+    gdisplayDispatchExport = arguments[2];
+    locationExport = arguments[3];
+    setLocationExport = arguments[4];
+    textboxDispatchExport = arguments[5];
+    setInputModeExport = arguments[6];
+    addLineExport = arguments[7];
+    atShopExport = arguments[8];
+    walletExport = arguments[9];
+    setWalletExport = arguments[10];
+    recordsDispatchExport = arguments[11];
 }
 
 export function updateImports(inventory, wallet, location, atShop) {
@@ -79,10 +77,6 @@ export function getWalletSetter() {
     return setWalletExport;
 }
 
-export function getQTE(){
-    return qteExport;
-}
-
-export function getQteDispatch() {
-    return qteDispatchExport;
+export function getRecordsDispatch() {
+    return recordsDispatchExport;
 }

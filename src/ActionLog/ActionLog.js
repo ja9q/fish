@@ -10,7 +10,7 @@ function ActionLog(props) {
     return (
       <div className='rounded log-body'>
         <div className='log-text'>
-          <ul>
+          <ul className='log'>
             {props.log}
           </ul>
         </div>

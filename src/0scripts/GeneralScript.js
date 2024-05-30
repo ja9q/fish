@@ -35,3 +35,4 @@ export function changeLocation(loc) {
         addLine("travelled to "+locations[loc].name+".");
     
 }
+

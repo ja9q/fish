@@ -74,9 +74,13 @@ button {
     background-color:var(--c-accentmain);
     width: 84.5rem;
 }
-@media screen and (max-width: 1000px) {
-    
+
+.list {
+    margin: 0px;
+    list-style-type: '- ';
+
 }
+
 h1, h2, h3 {
     margin: 0px;
 }

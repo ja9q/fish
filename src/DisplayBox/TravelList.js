@@ -21,7 +21,12 @@ function TravelOption({location}) {
         <>
         {(canGo) ?
             <span>
-                <img draggable={false} className={(!isHere) ? 'pixel travel-option cango' : 'pixel travel-option'} onClick={() =>  {if(canGo && !isHere){sfx_click01();changeLocation(location+1)}}} onMouseEnter={() => {if(!isHere){sfx_lightclick()}}} src={miscImg["locationlabel"+(location+1).toString()]} alt={"???"}/>
+                <img draggable={false} 
+                    className={(!isHere) ? 'pixel travel-option cango' : 'pixel travel-option'}
+                    onClick={() =>  {if(canGo && !isHere){sfx_click01();changeLocation(location+1)}}}
+                    onMouseEnter={() => {if(!isHere){sfx_lightclick()}}}
+                    src={miscImg["locationlabel"+(location+1).toString()]}
+                    alt={"???"}/>
                 {isHere && <img draggable={false} className='pixel travel-option' src={miscImg["urhere"]} alt={"???"}/>}
             </span> :
             <span>
@@ -33,7 +38,9 @@ function TravelOption({location}) {
 }
 
 function TravelList() {
-  
+
+    
+
     return (
     <>
       <img draggable={false} className='pixel background' src={backgrounds["travel"]} alt={"the travel menu is also just an overlay"}/>
@@ -41,7 +48,6 @@ function TravelList() {
         <TravelOption location={0} />
         <TravelOption location={1} />
         <TravelOption location={2} />
-        <TravelOption location={3} />
       </div>
     </>
     );

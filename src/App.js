@@ -8,6 +8,7 @@ import { displayLocation } from './0scripts/TextBoxScript.js';
 import { inventoryReducer, initialInventory } from './0reducers/InventoryReducer.js';
 import { gdisplayReducer, initialGDisplay } from './0reducers/GameDisplayReducer.js';
 import { textboxReducer } from './0reducers/TextBoxReducer.js';
+import { recordReducer, initialRecord } from './0reducers/RecordReducer.js';
 import { qteReducer, initialQTE } from './0reducers/QTEReducer';
 
 import Header from "./Header/Header.js";
@@ -45,6 +46,7 @@ function App() {
     "sprite": {},
     "showsSprite": false});
   const [qte, qteDispatch] = useReducer(qteReducer, initialQTE);
+  const [records, recordsDispatch] = useReducer(recordReducer, initialRecord);
   
   function addLine(l) {
     const temp = log;
@@ -56,7 +58,7 @@ function App() {
   }
 
   useEffect(() => {
-    initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet);
+    initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, recordsDispatch);
     setLoaded(true);
     addLine("welcome to the fishing game!");
   }, []);
@@ -90,7 +92,7 @@ function App() {
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
           </>
           }
-          {displayMode === 1 && <Records/>}
+          {displayMode === 1 && <Records records={records} />}
           {displayMode === 2 && <About/>}
           {displayMode === 3 && <Settings/>}
         </div>
