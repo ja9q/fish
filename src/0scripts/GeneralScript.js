@@ -17,6 +17,7 @@ r.keys().forEach((item, index) => { images[item.replace('./', '').replace('.png'
     return images;
 }
 
+
 export function changeLocation(loc) {
     const setLocation = getLocationSetter();
     const textboxDispatch = getTextboxDispatch();

@@ -9,11 +9,11 @@ import { backgrounds, sprites } from '../0scripts/GeneralScript';
 import { getItem, buyItem, hasItem } from '../0scripts/InventoryScript';
 import { displayListing, displayLocation } from '../0scripts/TextBoxScript';
 
-function ShopItem({listing, wallet}) {
+function ShopItem({listing, wallet, volume}) {
   const item = getItem(listing.item);
   const price = item.price * listing.count;
 
-  const [sfx_lightclick] = useSound(click_light)
+  const [sfx_lightclick] = useSound(click_light, {volume: volume})
   const [canBuy, setCanBuy] = useState(false);
   const [inStock, setStock] = useState(() => {return !((!listing.restocks) && hasItem(listing.item))});
 
@@ -38,10 +38,10 @@ function ShopItem({listing, wallet}) {
   );
 }
 
-function ShopList({shop, wallet}) {
+function ShopList({shop, wallet, volume}) {
 
   const shopListing = shop.map((item) => 
-    <ShopItem listing={item} wallet={wallet} />);
+    <ShopItem listing={item} wallet={wallet} volume={volume} />);
 
   return (
   <>

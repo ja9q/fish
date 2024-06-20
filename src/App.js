@@ -35,7 +35,8 @@ function App() {
   const [atTravel, setTravel] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  const [wallet, setWallet] = useState(0.00);  
+  const [wallet, setWallet] = useState(0.00);
+  const [volume, setVolume] = useState(0.8);
 
   const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
   const [gdisplay, gdisplayDispatch] = useReducer(gdisplayReducer, initialGDisplay);
@@ -46,6 +47,7 @@ function App() {
     "sprite": {},
     "showsSprite": false});
   const [qte, qteDispatch] = useReducer(qteReducer, initialQTE);
+
   const [records, recordsDispatch] = useReducer(recordReducer, initialRecord);
   
   function addLine(l) {
@@ -58,7 +60,7 @@ function App() {
   }
 
   useEffect(() => {
-    initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, recordsDispatch);
+    initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, recordsDispatch, volume);
     setLoaded(true);
     addLine("welcome to the fishing game!");
   }, []);
@@ -73,8 +75,8 @@ function App() {
 
   return (
     <div className="App">
-
-      <Header setDisplay={setDisplay} />
+      {isLoaded && <>
+      <Header setDisplay={setDisplay}  volume={volume} />
 
       <div className='page-body'>
 
@@ -84,20 +86,20 @@ function App() {
         </div>
 
         <div className='gamestuff section'>
-        {(displayMode === 0 && isLoaded) && <>
+        {(displayMode === 0) && <>
           <div className='gamestack'>
             <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} />
-            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} />
+            <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} volume={volume}/>
           </div>
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
           </>
           }
           {displayMode === 1 && <Records records={records} />}
           {displayMode === 2 && <About/>}
-          {displayMode === 3 && <Settings/>}
+          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} />}
         </div>
       </div>
-
+    </>}
     </div>
   );
 }

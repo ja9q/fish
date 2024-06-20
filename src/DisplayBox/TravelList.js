@@ -12,9 +12,9 @@ import './DisplayBox.css';
 import click_light from '../0assets/sfx/click_light.mp3'
 import click_01 from '../0assets/sfx/click_01.mp3'
 
-function TravelOption({location}) {
-    const [sfx_lightclick] = useSound(click_light)
-    const [sfx_click01] = useSound(click_01)
+function TravelOption({location, volume}) {
+    const [sfx_lightclick] = useSound(click_light, {volume: volume})
+    const [sfx_click01] = useSound(click_01, {volume: volume})
     const isHere = ((location+1) === getLocation().id)
     const canGo = (location === 0 || hasItem({"type": "other", "id": location}))
     return (
@@ -37,7 +37,7 @@ function TravelOption({location}) {
     )
 }
 
-function TravelList() {
+function TravelList({volume}) {
 
     
 
@@ -45,9 +45,9 @@ function TravelList() {
     <>
       <img draggable={false} className='pixel background' src={backgrounds["travel"]} alt={"the travel menu is also just an overlay"}/>
       <div className='travel-list'>
-        <TravelOption location={0} />
-        <TravelOption location={1} />
-        <TravelOption location={2} />
+        <TravelOption location={0} volume={volume} />
+        <TravelOption location={1} volume={volume} />
+        <TravelOption location={2} volume={volume} />
       </div>
     </>
     );

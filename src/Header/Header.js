@@ -8,9 +8,9 @@ import {ReactComponent as RecordIcon} from '../0assets/vectors/records.svg';
 import {ReactComponent as AboutIcon} from '../0assets/vectors/about.svg';
 import {ReactComponent as SettingsIcon} from '../0assets/vectors/settings.svg';
 
-function Header({setDisplay}) {
+function Header({setDisplay, volume}) {
 
-  const [sfx_click01] = useSound(click01);
+  const [sfx_click01] = useSound(click01, {volume: volume});
   const [menuLabel, setLabel] = useState("");
 
   return (

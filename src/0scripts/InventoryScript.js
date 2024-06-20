@@ -87,7 +87,7 @@ export function buyItem(listing, price) {
     const setWallet = getWalletSetter();
     const inventoryDispatch = getInventoryDispatch();
 
-    addLine("Janine bought the " + listing.listing + "! (-$"+price.toFixed(2)+")");
+    addLine("Bought the " + listing.listing + "! (-$"+price.toFixed(2)+")");
     setWallet(getWallet() - price);
     inventoryDispatch({"type": "add", "count": listing.count, "item": listing.item})
 }

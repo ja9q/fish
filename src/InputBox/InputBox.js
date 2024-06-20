@@ -8,9 +8,9 @@ import { displayLocation } from '../0scripts/TextBoxScript';
 import { hasItem } from '../0scripts/InventoryScript.js';
 
 
-function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop, setTravel}) {
+function InputBox({inputMode, setInputMode, gdisplayDispatch, setShop, setTravel, volume}) {
 
-  const [sfx_click01] = useSound(click01);
+  const [sfx_click01] = useSound(click01, {volume: volume});
 
   return (
     <div className="rounded noselect input-body">

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { fish } from '../0scripts/GeneralScript';
 
 function Records({records}) {
@@ -19,7 +18,7 @@ function Records({records}) {
         <ul className="list" >
           {species}
         </ul>
-        <p className="line-spaced"><strong>Total Bites</strong>: {records.totalBites} <em> (Failed Catches: {records.failedCatches})</em></p>
+        <p className="line-spaced"><strong>Total Bites</strong>: {records.totalBites} <em> (Failed Catches: {records.totalBites-records.caughtFish})</em></p>
       </div>
     );
   }
