@@ -1,6 +1,6 @@
 import { expendBait, printInventory } from './InventoryScript';
 import { fish } from './GeneralScript';
-import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getRecordsDispatch } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getRecordsDispatch, getVolume } from './ScriptImports';
 import { getEquippedRod, getItem } from './InventoryScript';
 import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
@@ -18,6 +18,8 @@ export function castLine () {
     const gdisplayDispatch = getGDisplayDispatch();
     const textboxDispatch = getTextboxDispatch();
 
+    const addLine = getAddLine();
+
     usedBait = expendBait(inventory, inventoryDispatch);
 
     if (usedBait !== null){
@@ -29,15 +31,18 @@ export function castLine () {
     
         timerId = setTimeout(biteEvent, biteTimer * 1000);
     } else {
-        alert("you don't have any bait equipped!")
+        addLine("you don't have any bait equipped!");
         setInputMode("at-water");
     }
     
 }
 
 function biteEvent() {
+    const volume = getVolume();
 
-    let drip = new Audio(water_drip)
+
+    let drip = new Audio(water_drip);
+    drip.volume = volume;
     drip.play();
     const gdisplayDispatch = getGDisplayDispatch();
     const textboxDispatch = getTextboxDispatch();
@@ -57,12 +62,12 @@ export function reelIn() {
     const recordDispatch = getRecordsDispatch();
     const location = getLocation();
     const addLine = getAddLine();
+    const volume = getVolume();
 
     if(hasBite){
 
-
-        
         let sfx = new Audio(water_splash)
+        sfx.volume = volume;
         sfx.play()
         gdisplayDispatch({"type": "clearDisplay"});
         clearTimeout(timerId);

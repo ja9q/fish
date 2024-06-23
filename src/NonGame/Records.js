@@ -1,11 +1,15 @@
 import { fish } from '../0scripts/GeneralScript';
 
+import { getItem } from '../0scripts/InventoryScript';
+import { displayItem, displayLocation } from '../0scripts/TextBoxScript';
+
 function Records({records}) {
 
 
   let species = [];
   records.caughtSpecies.forEach((element, i) => {
     if (i > 0 && element > 0) {
+
       species.push(<li><em>{fish[i].name}</em>: {element}</li>);
     }    
 

@@ -65,6 +65,61 @@
             "rarity": 1,
             "size": "small",
             "price": 2.5
+        },
+        {
+            "id": 6,
+            "name": "Red drum",
+            "subtitle": "Sciaenops ocellatus",
+            "image": {"image": "redfish",
+                "alt": "a medium size fish with a slightly red body and a pale underside. there is a black spot at the base of its tail"},
+            "flavor": "Red drums are one of the many fish that are also known as \"redfish\". They can be identified by the black spot(s) near the base of its tail.",
+            "rarity": 2,
+            "size": "small",
+            "price": 7.25
+        },
+        {
+            "id": 7,
+            "name": "Barracuda",
+            "subtitle": "Sphyraena barracuda",
+            "image": {"image": "barracuda",
+                "alt": "a long silvery fish with a sleek, straight body. it has some dark mottling on its upper half"},
+            "flavor": "Barracudas are a large predatory fish known for their long body and strong bite. They are made for both eastern and western pools despite what one's heart may believe.",
+            "rarity": 2,
+            "size": "small",
+            "price": 10.25
+        },
+        {
+            "id": 8,
+            "name": "Fluke",
+            "subtitle": "Paralichthys dentatus",
+            "image": {"image": "fluke",
+                "alt": "A flat fish with a wide, football-shaped silhouette. both of its eyes are pushed to one side of its body."},
+            "flavor": "Flukes are also known as summer flounder. Although they are ambush predators, they are also known to chase their prey if they aren't initially successful",
+            "rarity": 1,
+            "size": "small",
+            "price": 8.0
+        },
+        {
+            "id": 9,
+            "name": "Sheepshead",
+            "subtitle": "Archosargus probatocephalus",
+            "image": {"image": "sheepshead",
+                "alt": "A rather pale fish with black stripes. Its head is more bluntly-shaped than other fish."},
+            "flavor": "Sheepshead have large blunt teeth like sheep, but they don't really look like sheep. They are not known for their contributations to the wool industry.",
+            "rarity": 1,
+            "size": "small",
+            "price": 6.75
+        },
+        {
+            "id": 10,
+            "name": "Striped bass",
+            "subtitle": "Morne saxatalis",
+            "image": {"image": "stripedbass",
+                "alt": "A large fish with a silvery body and black stripes running lengthwise."},
+            "flavor": "Striped bass are very popular among fishermen, but some might know it as the rockfish below the northern United States.",
+            "rarity": 2,
+            "size": "small",
+            "price": 11.0
         }
     ]
 }

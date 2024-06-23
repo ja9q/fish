@@ -24,10 +24,10 @@
             "id": 2,
             "name": "River Fishing Pass",
             "subtitle": "",
-            "image": {"image": "",
-                "alt": ""},
-            "flavor": "",
-            "price": 0.0,
+            "image": {"image": "riverpass",
+                "alt": "a small plastic card illustrated with a river"},
+            "flavor": "this card lets you travel to the river!",
+            "price": 50.0,
             "properties": []
         },
         {

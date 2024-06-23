@@ -66,8 +66,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    updateImports(inventory, wallet, location, atShop);
-  }, [inventory, wallet, location, atShop]);
+    updateImports(inventory, wallet, location, atShop, volume);
+  }, [inventory, wallet, location, atShop, volume]);
 
   useEffect(() => {
     displayLocation();

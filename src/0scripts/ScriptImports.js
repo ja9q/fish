@@ -10,6 +10,7 @@ let atShopExport = null;
 let walletExport = null;
 let setWalletExport = null;
 let recordsDispatchExport = null;
+let volumeExport = null;
 
 export function initScriptImports() {   
     inventoryExport = arguments[0];
@@ -24,13 +25,15 @@ export function initScriptImports() {
     walletExport = arguments[9];
     setWalletExport = arguments[10];
     recordsDispatchExport = arguments[11];
+    volumeExport = arguments[12];
 }
 
-export function updateImports(inventory, wallet, location, atShop) {
+export function updateImports(inventory, wallet, location, atShop, volume) {
     inventoryExport = inventory;
     walletExport = wallet;
     locationExport = location;
     atShopExport = atShop;
+    volumeExport = volume;
 }
 
 export function getInventory() {
@@ -79,4 +82,8 @@ export function getWalletSetter() {
 
 export function getRecordsDispatch() {
     return recordsDispatchExport;
+}
+
+export function getVolume() {
+    return volumeExport;
 }
