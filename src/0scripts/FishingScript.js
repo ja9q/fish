@@ -31,7 +31,7 @@ export function castLine () {
     
         timerId = setTimeout(biteEvent, biteTimer * 1000);
     } else {
-        addLine("you don't have any bait equipped!");
+        alert("you don't have any bait equipped!");
         setInputMode("at-water");
     }
     

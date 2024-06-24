@@ -16,6 +16,9 @@ switch (action.type) {
     case 'failedCatch': {
         return recordFailedCatch(record);
     }
+    case 'set': {
+        return action.records;
+    }
     default: {
         throw Error('Unknown action: ' + action.type);
     }

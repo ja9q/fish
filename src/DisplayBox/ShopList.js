@@ -5,15 +5,16 @@ import './DisplayBox.css';
 
 import click_light from '../0assets/sfx/click_light.mp3'
 
+import { getVolume } from '../0scripts/ScriptImports';
 import { backgrounds, sprites } from '../0scripts/GeneralScript';
 import { getItem, buyItem, hasItem } from '../0scripts/InventoryScript';
 import { displayListing, displayLocation } from '../0scripts/TextBoxScript';
 
-function ShopItem({listing, wallet, volume}) {
+function ShopItem({listing, wallet}) {
   const item = getItem(listing.item);
   const price = item.price * listing.count;
 
-  const [sfx_lightclick] = useSound(click_light, {volume: volume})
+  const [sfx_lightclick] = useSound(click_light, {volume: getVolume()});
   const [canBuy, setCanBuy] = useState(false);
   const [inStock, setStock] = useState(() => {return !((!listing.restocks) && hasItem(listing.item))});
 
@@ -38,10 +39,10 @@ function ShopItem({listing, wallet, volume}) {
   );
 }
 
-function ShopList({shop, wallet, volume}) {
+function ShopList({shop, wallet}) {
 
   const shopListing = shop.map((item) => 
-    <ShopItem listing={item} wallet={wallet} volume={volume} />);
+    <ShopItem listing={item} wallet={wallet} />);
 
   return (
   <>

@@ -18,7 +18,7 @@ r.keys().forEach((item, index) => { images[item.replace('./', '').replace('.png'
 }
 
 
-export function changeLocation(loc) {
+export function changeLocation(loc, silent) {
     const setLocation = getLocationSetter();
     const textboxDispatch = getTextboxDispatch();
     const location = getLocation();
@@ -32,7 +32,7 @@ export function changeLocation(loc) {
     textboxDispatch({"type": "reset"});
     textboxDispatch({"type": "setHeader", "new": locations[loc].name});
     textboxDispatch({"type": "setFlavor", "new": locations[loc].flavor});
-    if (loc !== location.locationId)
+    if (!silent && loc !== location.locationId)
         addLine("travelled to "+locations[loc].name+".");
     
 }

@@ -32,11 +32,24 @@
                 "alt": "a view of the ocean with wooden a dock extending into the water. the dock's planks look a bit crookied"},
             "flavor": "canted port was designed by a local artist who wanted to bring color and pizazz to visitors. The unique planks are still there, but the paint washed off on the first day of its reveal.",
             "fishWait": 3.0,
-            "fish": [{"fish": 1, "chance": 100}, {"fish": 6, "chance": 95}, {"fish": 7, "chance": 70}, {"fish": 8, "chance": 45}, {"fish": 9, "chance": 30}, {"fish": 10, "chance": 10}],
+            "fish": [{"fish": 1, "chance": 100}, {"fish": 6, "chance": 100}, {"fish": 7, "chance": 70}, {"fish": 8, "chance": 45}, {"fish": 9, "chance": 30}, {"fish": 10, "chance": 10}],
             "shop": [
                 {"listing": "pack of 10 worms", "item": {"type": "bait", "id": 2}, "flavor": "a plastic container of live worms. they work better than bread.", "count": 10, "restocks": true},
                 {"listing": "better rod", "item": {"type": "rod", "id": 2}, "flavor": "not only does it look cooler, but it works better too", "count": 1, "restocks": false},
                 {"listing": "river fishing pass", "item": {"type": "other", "id": 2}, "flavor": "something that lets you fish at the river", "count": 1, "restocks": false}
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Spotbox River",
+            "image": {"image": "spotboxriver",
+                "alt": "a gentle river in the middle of the forest. the water is a clear blue."},
+            "flavor": "nobody knows why it was called spotbox river. the cartographers named it on a whim, but even they can't recall why it was given that name. the forest around it is part of a local park.",
+            "fishWait": 3.0,
+            "fish": [{"fish": 1, "chance": 100}, {"fish": 6, "chance": 100}, {"fish": 7, "chance": 70}, {"fish": 8, "chance": 45}, {"fish": 9, "chance": 30}, {"fish": 10, "chance": 10}],
+            "shop": [
+                {"listing": "pack of 10 worms", "item": {"type": "bait", "id": 2}, "flavor": "a plastic container of live worms. they work better than bread.", "count": 10, "restocks": true},
+                {"listing": "best rod", "item": {"type": "rod", "id": 2}, "flavor": "not only does it look cooler, but it works better too", "count": 1, "restocks": false}
             ]
         }
     ]

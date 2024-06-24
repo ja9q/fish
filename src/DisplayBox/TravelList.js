@@ -39,8 +39,6 @@ function TravelOption({location, volume}) {
 
 function TravelList({volume}) {
 
-    
-
     return (
     <>
       <img draggable={false} className='pixel background' src={backgrounds["travel"]} alt={"the travel menu is also just an overlay"}/>

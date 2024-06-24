@@ -9,6 +9,9 @@ switch (action.type) {
     case 'equip': {
         return equipItem(inventory, action);
     }
+    case 'set': {
+        return action.inventory;
+    }
     default: {
         throw Error('Unknown action: ' + action.type);
     }
@@ -17,7 +20,7 @@ switch (action.type) {
 
 export const initialInventory = [
     { type:"rod", id: 1, count: 1, equipped: true },
-    { type:"bait", id: 1, count: 10, equipped: true }
+    { type:"bait", id: 1, count: 5, equipped: true } 
 ];
     
 

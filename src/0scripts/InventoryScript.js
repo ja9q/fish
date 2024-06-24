@@ -1,4 +1,4 @@
-import { getInventory, getInventoryDispatch, getWallet, getWalletSetter, getAddLine } from './ScriptImports';
+import { getInventory, getInventoryDispatch, getWallet, getWalletSetter, getAddLine, getVolume } from './ScriptImports';
 import { bait, rod, fish, miscItems } from './GeneralScript';
 import click_light from '../0assets/sfx/click_light.mp3'
 import money_sfx from '../0assets/sfx/money_sfx.mp3'
@@ -69,6 +69,7 @@ export function printInventory() {
 
 export function sellItem(item, price) {
     const sfx = new Audio(money_sfx)
+    sfx.volume = getVolume();
     sfx.play();
     const setWallet = getWalletSetter();
     const inventoryDispatch = getInventoryDispatch();
@@ -82,6 +83,7 @@ export function sellItem(item, price) {
 
 export function buyItem(listing, price) {
     const sfx = new Audio(money_sfx)
+    sfx.volume = getVolume();
     sfx.play();
     const addLine = getAddLine();
     const setWallet = getWalletSetter();
@@ -104,6 +106,7 @@ export function hasItem(target) {
 
 export function equipItem(target) {
     const sfx = new Audio(click_light)
+    sfx.volume = getVolume();
     sfx.play();
     const addLine = getAddLine();
     const inventoryDispatch = getInventoryDispatch();

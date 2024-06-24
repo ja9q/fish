@@ -2,6 +2,7 @@ import { useState, useEffect, useReducer } from 'react';
 
 import './App.css';
 
+import { changeLocation } from './0scripts/GeneralScript.js';
 import { initScriptImports, updateImports } from './0scripts/ScriptImports.js';
 import { displayLocation } from './0scripts/TextBoxScript.js';
 
@@ -20,9 +21,12 @@ import Settings from "./NonGame/Settings.js";
 import Inventory from "./Inventory/Inventory.js";
 import TextBox from "./TextBox/TextBox.js";
 import InputBox from "./InputBox/InputBox.js";
+import { useCookies } from 'react-cookie';
 
 
 function App() {
+
+  const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
 
   let locations = require('./0data/locations.json').locations;
 
@@ -59,13 +63,38 @@ function App() {
     setLine(!newLine);
   }
 
+  function loadCookies() {
+    inventoryDispatch({"type": "set", "inventory": cookies["inventory"]});
+    setWallet(cookies["wallet"]);
+    recordsDispatch({"type": "set", "records": cookies["record"]});
+    changeLocation(location.id, true);
+    setVolume(cookies["volume"]);
+  }
+
+  function updateCookies() {
+    setCookie("inventory", inventory);
+    setCookie("wallet", wallet);
+    setCookie("location", location);
+    setCookie("volume", volume);
+    setCookie("record", records);
+  }
+
   useEffect(() => {
     initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, recordsDispatch, volume);
+
+    if (cookies["inventory"]) {
+      loadCookies();
+      addLine("welcome back to the fishing game!");
+    } else {
+      updateCookies();
+      addLine("welcome to the fishing game!");
+    }
+
     setLoaded(true);
-    addLine("welcome to the fishing game!");
   }, []);
 
   useEffect(() => {
+    updateCookies();
     updateImports(inventory, wallet, location, atShop, volume);
   }, [inventory, wallet, location, atShop, volume]);
 
@@ -88,7 +117,7 @@ function App() {
         <div className='gamestuff section'>
         {(displayMode === 0) && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} volume={volume} />
             <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} volume={volume}/>
           </div>
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
