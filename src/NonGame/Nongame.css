@@ -1,0 +1,25 @@
+
+.settings-button {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color:var(--c-subback);
+    margin: 0px 10px 0px 0px;
+}
+.settings-button:last-of-type {
+    margin:0px;
+}
+
+.settings-button:hover {
+    background-color:var(--c-buttonback);
+}
+
+.warning-button:hover {
+    background-color:rgb(197, 85, 85);
+    color: rgb(63, 25, 28);
+}
+
+.warning-block {
+    padding: 10px 15px;
+}

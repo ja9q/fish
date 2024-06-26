@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer } from 'react';
+import { useCookies } from 'react-cookie';
 
 import './App.css';
 
@@ -21,7 +22,7 @@ import Settings from "./NonGame/Settings.js";
 import Inventory from "./Inventory/Inventory.js";
 import TextBox from "./TextBox/TextBox.js";
 import InputBox from "./InputBox/InputBox.js";
-import { useCookies } from 'react-cookie';
+
 
 
 function App() {
@@ -117,7 +118,7 @@ function App() {
         <div className='gamestuff section'>
         {(displayMode === 0) && <>
           <div className='gamestack'>
-            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} volume={volume} />
+            <DisplayBox gdisplay={gdisplay} atShop={atShop} shop={location.shop} wallet={wallet} atTravel={atTravel} qte={qte} qteDispatch={qteDispatch} location={location} volume={volume} />
             <InputBox inputMode={inputMode} setInputMode={setInputMode} gdisplayDispatch={gdisplayDispatch} location={location} setShop={setShop} setTravel={setTravel} volume={volume}/>
           </div>
           <Inventory inventory={inventory} atShop={atShop} wallet={wallet} />
@@ -125,7 +126,7 @@ function App() {
           }
           {displayMode === 1 && <Records records={records} />}
           {displayMode === 2 && <About/>}
-          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} />}
+          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} removeCookie={removeCookie} />}
         </div>
       </div>
     </>}

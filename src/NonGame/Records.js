@@ -28,4 +28,3 @@ function Records({records}) {
   }
   
   export default Records;
-  

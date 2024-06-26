@@ -7,7 +7,7 @@ import QuickTime from './QuickTime';
 import { backgrounds, sprites, miscImg } from '../0scripts/GeneralScript';
 
 
-function DisplayBox({gdisplay, atShop, shop, wallet, atTravel, qte, qteDispatch, volume}) {
+function DisplayBox({gdisplay, atShop, shop, wallet, atTravel, qte, qteDispatch, location, volume}) {
 
     return (
       <div className="rounded noselect display-body">
@@ -17,7 +17,7 @@ function DisplayBox({gdisplay, atShop, shop, wallet, atTravel, qte, qteDispatch,
         {false && <QuickTime qte={qte} qteDispatch={qteDispatch} /> }
         <img draggable={false} className='pixel background' src={backgrounds[gdisplay.visual.image]} alt={gdisplay.visual.alt}/>
         {atShop && <ShopList shop={shop} wallet={wallet} volume={volume} />}
-        {atTravel && <TravelList volume={volume} />}
+        {atTravel && <TravelList location={location} volume={volume} />}
       </div>
     );
   }
