@@ -17,7 +17,7 @@
             "subtitle": "Lepomis macrochirus",
             "image": {"image": "bluegill",
                 "alt": "Bluegill - a small fish and the first one to get a sprite."},
-            "flavor": "bluegills are a pretty common fish. though their gills aren't /that/ blue, they're surprisingly colorful.",
+            "flavor": "Bluegills are a pretty common fish. Though their gills aren't /that/ blue, they're surprisingly colorful.",
             "rarity": 0,
             "size": "small",
             "price": 1.20
@@ -28,7 +28,7 @@
             "subtitle": "Lepomis gibbosus",
             "image": {"image": "pumpkinseed",
                 "alt": "Pumpkinseed - this is literally a bluegill reskin"},
-            "flavor": "pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. maybe there's a more pumpkin seed shaped one out there...",
+            "flavor": "Pumpkinseeds are apparently \"pumpkin seed shaped\", but this one looks pretty fish shaped. Maybe there's a more pumpkin seed shaped one out there...",
             "rarity": 0,
             "size": "small",
             "price": 2.20
@@ -39,9 +39,9 @@
             "subtitle": "Micropterus dolomieu",
             "image": {"image": "smallmouthbass",
                 "alt": "a green fish with a white body"},
-            "flavor": "smallmouth bass are a very popular fish among fishermen. their dedicated article on wikipedia doesn't talk about their mouth once.",
+            "flavor": "Smallmouth bass are a very popular fish among fishermen. Their dedicated article on wikipedia doesn't talk about their mouth once.",
             "rarity": 1,
-            "size": "small",
+            "size": "medium",
             "price": 4.50
         },
         {
@@ -50,9 +50,9 @@
             "subtitle": " Ictalurus punctatus",
             "image": {"image": "channelcatfish",
                 "alt": "a sleek-looking fish with 3 pairs of whiskers (which is incorrect)"},
-            "flavor": "Channel Catfish live in channels of water and lack the means to live in channels of any other medium. you may see them in certain tv channels though.",
+            "flavor": "Channel Catfish live in channels of water and lack the means to live in channels of any other medium. You may see them in certain tv channels though.",
             "rarity": 1,
-            "size": "small",
+            "size": "medium",
             "price": 4.0
         },
         {
@@ -74,7 +74,7 @@
                 "alt": "a medium size fish with a slightly red body and a pale underside. there is a black spot at the base of its tail"},
             "flavor": "Red drums are one of the many fish that are also known as \"redfish\". They can be identified by the black spot(s) near the base of its tail.",
             "rarity": 2,
-            "size": "small",
+            "size": "medium",
             "price": 7.25
         },
         {
@@ -85,7 +85,7 @@
                 "alt": "a long silvery fish with a sleek, straight body. it has some dark mottling on its upper half"},
             "flavor": "Barracudas are a large predatory fish known for their long body and strong bite. They are made for both eastern and western pools despite what one's heart may believe.",
             "rarity": 2,
-            "size": "small",
+            "size": "medium",
             "price": 10.25
         },
         {
@@ -96,7 +96,7 @@
                 "alt": "A flat fish with a wide, football-shaped silhouette. both of its eyes are pushed to one side of its body."},
             "flavor": "Flukes are also known as summer flounder. Although they are ambush predators, they are also known to chase their prey if they aren't initially successful",
             "rarity": 1,
-            "size": "small",
+            "size": "medium",
             "price": 8.0
         },
         {
@@ -127,9 +127,9 @@
             "subtitle": "Anguilla rostrata",
             "image": {"image": "americaneel",
                 "alt": "A long fish that looks more like a brown worm with fins its dorsal, tail, and anal fins are fused into a single fin."},
-            "flavor": "The american eel is as slippery as most eels. They are as slippery as a moray even, but they are not as lovely.",
+            "flavor": "The american eel is as slippery as most eels. They are as slippery as a moray even, but they lack the relation to the moon hitting one's eye.",
             "rarity": 3,
-            "size": "small",
+            "size": "medium",
             "price": 28.0
         },
         {
@@ -140,7 +140,7 @@
                 "alt": "A brown fish with a carp-shaped body. In other words, it looks like a duller goldfish"},
             "flavor": "Tench are also known as the doctor fish because of an old myth that any fish that rubbed against its slimy scales would be cured of diseases.",
             "rarity": 2,
-            "size": "small",
+            "size": "medium",
             "price": 17.0
         },
         {
@@ -151,7 +151,7 @@
                 "alt": "A medium-sized fish with a silvery body covered in dots. There is a red stripe running down its body."},
             "flavor": "Rainbow trout can be found all over the United States in a variety of forms and subspecies. This particular one is a coastal rainbow trout.",
             "rarity": 3,
-            "size": "small",
+            "size": "medium",
             "price": 30.25
         },
         {
@@ -162,7 +162,7 @@
                 "alt": "A fish with broad head and a larger-than-usual mouth. Its mouth isn't that big."},
             "flavor": "You might have seen its fellow Centrarchidae member the smallmouth bass and the bluegill. They tend to pick a fight when fishermen try to reel them in.",
             "rarity": 2,
-            "size": "small",
+            "size": "medium",
             "price": 32.75
         },
         {
@@ -173,7 +173,7 @@
                 "alt": "A medium sized fish with a hooked mouth and vibrant red body. Its head and tail are a dark grey."},
             "flavor": "Sockeye salmon look like normal salmon until spawning season, when their body becomes a bright red. During this time, they travel up rivers in droves.",
             "rarity": 3,
-            "size": "small",
+            "size": "medium",
             "price": 38.0
         }
     ]

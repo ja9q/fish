@@ -23,3 +23,15 @@
 .warning-block {
     padding: 10px 15px;
 }
+
+.rel {
+    position:relative;
+}
+
+.big-sprite {
+    position: absolute;
+    opacity:0.5;
+    top:10rem;
+    right: 10rem;
+    height: 18rem;
+}

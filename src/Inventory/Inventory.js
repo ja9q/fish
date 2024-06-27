@@ -23,8 +23,12 @@ function Item({item, atShop}) {
 }
 
 function InvenSection({sectionName, items, atShop}) {
-  const equippedItems = items.map(item => {
-    if (item.equipped)
+  const equippedRod = items.map(item => {
+    if (item.equipped && item.type === "rod")
+     return <Item item={item} atShop={atShop} />
+  });
+  const equippedBait = items.map(item => {
+    if (item.equipped && item.type === "bait")
      return <Item item={item} atShop={atShop} />
   });
 
@@ -37,7 +41,7 @@ function InvenSection({sectionName, items, atShop}) {
       <div className='inven-section'>
         
           <strong>{sectionName}</strong> <br/>
-          {sectionName === "Gear" && equippedItems}
+          {sectionName === "Gear" && <>{equippedRod} {equippedBait}</>}
           {itemList}
         
     </div>

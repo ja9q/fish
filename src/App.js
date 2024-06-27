@@ -40,7 +40,7 @@ function App() {
   const [atTravel, setTravel] = useState(false);
   const [newLine, setLine] = useState(false);
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
-  const [wallet, setWallet] = useState(100.00);
+  const [wallet, setWallet] = useState(0.00);
   const [volume, setVolume] = useState(0.8);
 
   const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
