@@ -11,7 +11,7 @@ function DisplayBox({gdisplay, atShop, shop, wallet, atTravel, qte, qteDispatch,
 
     return (
       <div className="rounded noselect display-body">
-        {gdisplay.showsFish && <img draggable={false} className='pixel item' src={sprites[gdisplay.fishDisplay.image]} alt={gdisplay.fishDisplay.alt}/>}
+        {gdisplay.showsFish && <img draggable={false} className='pixel item highlight' src={sprites[gdisplay.fishDisplay.image]} alt={gdisplay.fishDisplay.alt}/>}
         {gdisplay.showsOverlay && <img draggable={false} className='pixel overlay' src={miscImg[gdisplay.overlay.image]} alt={gdisplay.overlay.alt}/>}
         {/* 8:5 display */}
         {false && <QuickTime qte={qte} qteDispatch={qteDispatch} /> }

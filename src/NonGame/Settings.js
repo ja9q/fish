@@ -17,7 +17,7 @@ function Settings({volume, setVolume, removeCookie}) {
     }
 
     return (
-      <div className="nongame rounded">
+      <div className="nongame rounded noselect">
         <h2>settings</h2>
         <div>
           <br/>

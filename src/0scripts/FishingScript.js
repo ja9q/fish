@@ -93,7 +93,7 @@ function generateFish(locationFish) {
     const baitTier = getItem(usedBait).tier;
     const rodTier = getItem(getEquippedRod()).tier;
 
-    const maxFishTier = Math.ceil((Math.min(baitTier, rodTier) + baitTier + rodTier) / 3.0)
+    const maxFishTier = Math.ceil((baitTier + rodTier) / 2.0)
 
     const fishGacha = Math.random()* 100;
     let caughtFish = 0;
@@ -103,7 +103,11 @@ function generateFish(locationFish) {
     }
     });
 
-    recordDispatch({"type": "caughtFish", "fish": caughtFish});
+
+    if (caughtFish !== 0) {
+        recordDispatch({"type": "caughtFish", "fish": caughtFish});
+    }
+    
 
     return caughtFish;
 }

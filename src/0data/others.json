@@ -32,12 +32,12 @@
         },
         {
             "id": 3,
-            "name": "Ocean Fishing Pass",
-            "subtitle": "",
-            "image": {"image": "",
-                "alt": ""},
-            "flavor": "",
-            "price": 0.0,
+            "name": "Trophy",
+            "subtitle": "You did it. You won.",
+            "image": {"image": "trophy",
+                "alt": "A golden trophy in the shape of a fish"},
+            "flavor": "Congratulations on getting this trophy! You have completed the fishing game!",
+            "price": 300.0,
             "properties": []
         }
 

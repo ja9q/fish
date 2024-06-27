@@ -2,13 +2,13 @@
     "fish": [
         {
             "id": 0,
-            "name": "",
-            "subtitle": "",
-            "image": {"image": "",
-                "alt": ""},
-            "flavor": "",
+            "name": "Piece of junk",
+            "subtitle": "this is not a fish",
+            "image": {"image": "trash",
+                "alt": "A crumpled up soda can. It's a light blue and honestly wasn't modeled after a specific brand."},
+            "flavor": "A piece of junk you fished up. You might want to get a better fishing rod or bait to catch actual fish in this area...",
             "rarity": 0,
-            "size": "",
+            "size": "small",
             "price": 0.0
         },
         {
@@ -120,6 +120,61 @@
             "rarity": 2,
             "size": "small",
             "price": 11.0
+        },
+        {
+            "id": 11,
+            "name": "American eel",
+            "subtitle": "Anguilla rostrata",
+            "image": {"image": "americaneel",
+                "alt": "A long fish that looks more like a brown worm with fins its dorsal, tail, and anal fins are fused into a single fin."},
+            "flavor": "The american eel is as slippery as most eels. They are as slippery as a moray even, but they are not as lovely.",
+            "rarity": 3,
+            "size": "small",
+            "price": 28.0
+        },
+        {
+            "id": 12,
+            "name": "Tench",
+            "subtitle": "Tinca tinca",
+            "image": {"image": "tench",
+                "alt": "A brown fish with a carp-shaped body. In other words, it looks like a duller goldfish"},
+            "flavor": "Tench are also known as the doctor fish because of an old myth that any fish that rubbed against its slimy scales would be cured of diseases.",
+            "rarity": 2,
+            "size": "small",
+            "price": 17.0
+        },
+        {
+            "id": 13,
+            "name": "Rainbow Trout",
+            "subtitle": "Oncorhynchus mykiss",
+            "image": {"image": "rainbowtrout",
+                "alt": "A medium-sized fish with a silvery body covered in dots. There is a red stripe running down its body."},
+            "flavor": "Rainbow trout can be found all over the United States in a variety of forms and subspecies. This particular one is a coastal rainbow trout.",
+            "rarity": 3,
+            "size": "small",
+            "price": 30.25
+        },
+        {
+            "id": 14,
+            "name": "Largemouth bass",
+            "subtitle": "Micropterus nigiricans",
+            "image": {"image": "largemouthbass",
+                "alt": "A fish with broad head and a larger-than-usual mouth. Its mouth isn't that big."},
+            "flavor": "You might have seen its fellow Centrarchidae member the smallmouth bass and the bluegill. They tend to pick a fight when fishermen try to reel them in.",
+            "rarity": 2,
+            "size": "small",
+            "price": 32.75
+        },
+        {
+            "id": 15,
+            "name": "Sockeye salmon",
+            "subtitle": "Oncorhynchus nerka",
+            "image": {"image": "sockeyesalmon",
+                "alt": "A medium sized fish with a hooked mouth and vibrant red body. Its head and tail are a dark grey."},
+            "flavor": "Sockeye salmon look like normal salmon until spawning season, when their body becomes a bright red. During this time, they travel up rivers in droves.",
+            "rarity": 3,
+            "size": "small",
+            "price": 38.0
         }
     ]
 }

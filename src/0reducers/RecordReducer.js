@@ -1,6 +1,6 @@
 export const initialRecord = {
     "caughtFish": 0,
-    "caughtSpecies": Array(5).fill(0),
+    "caughtSpecies": Array(16).fill(0),
     "totalBites": 0,
     "failedCatches": 0
 };

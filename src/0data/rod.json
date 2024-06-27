@@ -10,7 +10,7 @@
             "tier": 0,
             "power": 0,
             "properties": [],
-            "price": 0.0
+            "price": 1.0
         },
         {
             "id": 1,
@@ -35,6 +35,18 @@
             "power": 1.0,
             "properties": [],
             "price": 30.0
+        },
+        {
+            "id": 3,
+            "name": "Best Rod",
+            "subtitle": "it can do the best job",
+            "image": {"image": "bestrod",
+                "alt": "A fish rod made of black material and a green tip"},
+            "flavor": "a fishing rod made out of the strongest materials within the bounds of this game.",
+            "tier": 4,
+            "power": 1.0,
+            "properties": [],
+            "price": 75.0
         }
     ]
 }
