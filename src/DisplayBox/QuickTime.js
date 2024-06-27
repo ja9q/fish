@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import { miscImg } from "../0scripts/GeneralScript"
 
 
@@ -8,7 +6,7 @@ import './DisplayBox.css';
 
 function QuickTime({qte, qteDispatch}) {
 
-    
+    // this part has mostly been abandoned lol    
 
     return (
     <div className="qte-container">

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import { getLocation } from '../0scripts/ScriptImports';
 import { backgrounds, miscImg, changeLocation } from '../0scripts/GeneralScript';
 import { hasItem } from '../0scripts/InventoryScript';
 
@@ -21,7 +20,7 @@ function TravelOption({location, option, volume}) {
     const [isHere, setHere] = useState(location.id === option);
     useEffect(() => {
         setHere(location.id === option+1);
-    }, [location]);
+    }, [location, option]);
 
     
     return (

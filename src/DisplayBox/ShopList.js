@@ -20,7 +20,7 @@ function ShopItem({listing, wallet}) {
 
   useEffect (() => {
     setCanBuy(wallet >= price);
-  }, [wallet])
+  }, [wallet, price])
 
   return (
     <div className='shop-listing' onMouseEnter={() => {sfx_lightclick(); displayListing(listing, price, item, canBuy, inStock)}} onMouseLeave={displayLocation}>

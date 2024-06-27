@@ -1,10 +1,9 @@
-import { expendBait, printInventory } from './InventoryScript';
+import { expendBait } from './InventoryScript';
 import { fish } from './GeneralScript';
 import { getInventory, getInventoryDispatch, getGDisplayDispatch, getTextboxDispatch, getInputSetter, getLocation, getAddLine, getRecordsDispatch, getVolume } from './ScriptImports';
 import { getEquippedRod, getItem } from './InventoryScript';
 import water_splash from '../0assets/sfx/water_splash.mp3'
 import water_drip from '../0assets/sfx/water_drip.mp3'
-import Records from '../NonGame/Records';
 
 
 let timerId = null;
@@ -17,8 +16,6 @@ export function castLine () {
     const inventoryDispatch = getInventoryDispatch();
     const gdisplayDispatch = getGDisplayDispatch();
     const textboxDispatch = getTextboxDispatch();
-
-    const addLine = getAddLine();
 
     usedBait = expendBait(inventory, inventoryDispatch);
 
