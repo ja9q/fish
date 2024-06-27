@@ -92,7 +92,7 @@ function App() {
     }
 
     setLoaded(true);
-  });
+  }, []);
 
   useEffect(() => {
     updateCookies();
