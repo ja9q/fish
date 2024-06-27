@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/fishing-game/static/css/main.6ce6618d.css",
-    "main.js": "/fishing-game/static/js/main.dcee3ca4.js",
-    "static/js/845.e58e3170.chunk.js": "/fishing-game/static/js/845.e58e3170.chunk.js",
-    "static/js/787.f354c90c.chunk.js": "/fishing-game/static/js/787.f354c90c.chunk.js",
-    "static/media/water_drip.mp3": "/fishing-game/static/media/water_drip.00a7c7541276e5ab193f.mp3",
-    "static/media/water_splash.mp3": "/fishing-game/static/media/water_splash.60ff17fca38f7b820137.mp3",
-    "static/media/spotboxriver.png": "/fishing-game/static/media/spotboxriver.50bcbb09cb51b4e853a1.png",
-    "static/media/money_sfx.mp3": "/fishing-game/static/media/money_sfx.fedd4c1964c4771a39a5.mp3",
-    "static/media/cantedport.png": "/fishing-game/static/media/cantedport.190cda8e9f6b5267600c.png",
-    "static/media/greenhornlake.png": "/fishing-game/static/media/greenhornlake.36159831f44a58be2901.png",
-    "static/media/click_light.mp3": "/fishing-game/static/media/click_light.dc710dfdcbf2e1aecdfe.mp3",
-    "static/media/click_01.mp3": "/fishing-game/static/media/click_01.4661f620bc6ee7ae16ef.mp3",
-    "static/media/settings.svg": "/fishing-game/static/media/settings.a2243644ebe60c64b992b023864292a1.svg",
-    "static/media/fish.svg": "/fishing-game/static/media/fish.545129529b5692537206c0c1252b0f51.svg",
-    "static/media/about.svg": "/fishing-game/static/media/about.7bfe7ce66c5dda6994eda739878be0cc.svg",
-    "static/media/records.svg": "/fishing-game/static/media/records.3237d7bac22bcd83b00d11bcb9012e68.svg",
-    "index.html": "/fishing-game/index.html",
-    "main.6ce6618d.css.map": "/fishing-game/static/css/main.6ce6618d.css.map",
-    "main.dcee3ca4.js.map": "/fishing-game/static/js/main.dcee3ca4.js.map",
-    "845.e58e3170.chunk.js.map": "/fishing-game/static/js/845.e58e3170.chunk.js.map",
-    "787.f354c90c.chunk.js.map": "/fishing-game/static/js/787.f354c90c.chunk.js.map"
+    "main.css": "/fish/static/css/main.6ce6618d.css",
+    "main.js": "/fish/static/js/main.a4ca619c.js",
+    "static/js/845.e58e3170.chunk.js": "/fish/static/js/845.e58e3170.chunk.js",
+    "static/js/787.f354c90c.chunk.js": "/fish/static/js/787.f354c90c.chunk.js",
+    "static/media/water_drip.mp3": "/fish/static/media/water_drip.00a7c7541276e5ab193f.mp3",
+    "static/media/water_splash.mp3": "/fish/static/media/water_splash.60ff17fca38f7b820137.mp3",
+    "static/media/spotboxriver.png": "/fish/static/media/spotboxriver.50bcbb09cb51b4e853a1.png",
+    "static/media/money_sfx.mp3": "/fish/static/media/money_sfx.fedd4c1964c4771a39a5.mp3",
+    "static/media/cantedport.png": "/fish/static/media/cantedport.190cda8e9f6b5267600c.png",
+    "static/media/greenhornlake.png": "/fish/static/media/greenhornlake.36159831f44a58be2901.png",
+    "static/media/click_light.mp3": "/fish/static/media/click_light.dc710dfdcbf2e1aecdfe.mp3",
+    "static/media/click_01.mp3": "/fish/static/media/click_01.4661f620bc6ee7ae16ef.mp3",
+    "static/media/settings.svg": "/fish/static/media/settings.a2243644ebe60c64b992b023864292a1.svg",
+    "static/media/fish.svg": "/fish/static/media/fish.545129529b5692537206c0c1252b0f51.svg",
+    "static/media/about.svg": "/fish/static/media/about.7bfe7ce66c5dda6994eda739878be0cc.svg",
+    "static/media/records.svg": "/fish/static/media/records.3237d7bac22bcd83b00d11bcb9012e68.svg",
+    "index.html": "/fish/index.html",
+    "main.6ce6618d.css.map": "/fish/static/css/main.6ce6618d.css.map",
+    "main.a4ca619c.js.map": "/fish/static/js/main.a4ca619c.js.map",
+    "845.e58e3170.chunk.js.map": "/fish/static/js/845.e58e3170.chunk.js.map",
+    "787.f354c90c.chunk.js.map": "/fish/static/js/787.f354c90c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6ce6618d.css",
-    "static/js/main.dcee3ca4.js"
+    "static/js/main.a4ca619c.js"
   ]
 }
