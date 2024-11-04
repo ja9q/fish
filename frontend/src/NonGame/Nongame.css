@@ -49,6 +49,7 @@ input[type="range"]::-moz-range-thumb {
 
 .settings-button:hover {
     background-color:var(--c-buttonback);
+    cursor: pointer;
 }
 
 .warning-button:hover {
@@ -70,4 +71,48 @@ input[type="range"]::-moz-range-thumb {
     top:10rem;
     right: 10rem;
     height: 18rem;
+}
+.form-container {
+    margin: 5rem 20rem;
+    display: flex;
+    flex-direction: column;
+
+}
+.form-line {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.text-field {
+    width:60%;
+    height:3rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    color: var(--c-maintext);
+    border: none;
+    background-color: var(--c-background) !important;
+    padding: 0px 4px;
+}
+.text-field:focus {
+    outline: none;
+    box-shadow: none;
+    padding: 0px 2px;
+    border: 2px solid var(--c-maintext);
+}
+input[type='reset'] {
+    background-color: #00000000;
+    font-size: 1.5rem;
+    color: var(--c-buttonbackh);
+    outline:none;
+    border:none;
+    padding:0px;
+}
+
+input[type='reset']:hover {
+    cursor: pointer;
+    color: var(--c-maintext);
+    text-decoration: underline;
 }

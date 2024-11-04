@@ -7,6 +7,7 @@ import {ReactComponent as FishIcon} from '../0assets/vectors/fish.svg';
 import {ReactComponent as RecordIcon} from '../0assets/vectors/records.svg';
 import {ReactComponent as AboutIcon} from '../0assets/vectors/about.svg';
 import {ReactComponent as SettingsIcon} from '../0assets/vectors/settings.svg';
+import {ReactComponent as LoginIcon} from '../0assets/vectors/login.svg';
 
 function Header({setDisplay, volume}) {
 
@@ -22,6 +23,7 @@ function Header({setDisplay, volume}) {
         <button className='menu-button' onMouseEnter={() => {setLabel("records");}} onMouseLeave={() => {setLabel("");}} onClick={() => {sfx_click01(); setDisplay(1);}} ><RecordIcon /></button>
         <button className='menu-button' onMouseEnter={() => {setLabel("about");}} onMouseLeave={() => {setLabel("");}} onClick={() => {sfx_click01(); setDisplay(2);}} ><AboutIcon /></button>
         <button className='menu-button' onMouseEnter={() => {setLabel("settings");}} onMouseLeave={() => {setLabel("");}} onClick={() => {sfx_click01(); setDisplay(3);}} ><SettingsIcon/></button>
+        <button className='menu-button' onMouseEnter={() => {setLabel("log in");}} onMouseLeave={() => {setLabel("");}} onClick={() => {sfx_click01(); setDisplay(4);}} ><LoginIcon/></button>
       </span>
     </header>
   );
