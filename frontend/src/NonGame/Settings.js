@@ -2,19 +2,11 @@ import { useState } from "react";
 
 import './Nongame.css';
 
-function Settings({volume, setVolume, removeCookie}) {
+function Settings({volume, setVolume, resetCookies}) {
 
     const [resetWarning, setResetWarn] = useState(false);
 
-    function resetCookies() {
-      removeCookie("inventory");
-      removeCookie("wallet");
-      removeCookie("location");
-      removeCookie("volume");
-      removeCookie("record");
-      setResetWarn(false);
-      window.location.reload();
-    }
+    
 
     return (
       <div className="nongame rounded noselect">

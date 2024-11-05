@@ -1,6 +1,8 @@
 import { useState, useEffect, useReducer } from 'react';
 import { useCookies } from 'react-cookie';
 
+import axios from 'axios';
+
 import './App.css';
 
 import { changeLocation } from './0scripts/GeneralScript.js';
@@ -43,6 +45,7 @@ function App() {
   const [log, setLog] = useState([<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>,<li></li>]);
   const [wallet, setWallet] = useState(0.00);
   const [volume, setVolume] = useState(0.8);
+  const [username, setUsername] = useState('');
 
   const [inventory, inventoryDispatch] = useReducer(inventoryReducer, initialInventory);
   const [gdisplay, gdisplayDispatch] = useReducer(gdisplayReducer, initialGDisplay);
@@ -65,7 +68,54 @@ function App() {
     setLine(!newLine);
   }
 
+  async function saveUserData() {
+    if (username != '') {
+      console.log('attempting save...');
+
+      // convert the current inventory/record into strings for the database
+      let inventoryString = [];
+      const temp = inventory.map((item) => {
+        inventoryString.push(JSON.stringify(item))
+        return JSON.stringify(item)});
+      inventoryString = inventoryString.toString();
+
+      const recordsString = JSON.stringify(records);
+
+      try {
+        // attempt save
+        const response = await axios.patch('http://localhost:8080/api/user/save', { username, inventoryString, wallet, recordsString }, {withCredentials: true});
+        console.log('save sucess: '+response.data)
+      } catch (error) {
+          console.error('Save failed:', error.response ? error.response.data : error.message);
+      }
+
+      
+    }
+  }
+
+  function loadUserData(data) {
+    // convert the strings of the userdata into JSON data
+    addLine("logged in: " + data["username"]);
+
+    const inventoryData = [];
+    const invenDataTemp = data["inventory"].split('},');
+    invenDataTemp.forEach((item) => {
+      item += (item[item.length-1] !== '}') ? '}' : '';
+      inventoryData.push(JSON.parse(item));
+    });
+
+    const recordsData = JSON.parse(data["record"]);
+
+    setShop(false);
+    changeLocation(1, true);
+
+    inventoryDispatch({"type": "set", "inventory": inventoryData});
+    setWallet(data["wallet"]);
+    recordsDispatch({"type": "set", "records": recordsData});
+  }
+
   function loadCookies() {
+    console.log('loading cookies');
     inventoryDispatch({"type": "set", "inventory": cookies["inventory"]});
     setWallet(cookies["wallet"]);
     recordsDispatch({"type": "set", "records": cookies["record"]});
@@ -81,6 +131,28 @@ function App() {
     setCookie("record", records);
   }
 
+  function resetCookies() {
+    removeCookie("inventory");
+    removeCookie("wallet");
+    removeCookie("location");
+    removeCookie("volume");
+    removeCookie("record");
+    window.location.reload();
+  }
+
+  async function logOut() {
+    addLine("logged out: " + username);
+    setUsername('');
+    try {
+      // attempt save
+      const response = await axios.post('http://localhost:8080/api/auth/logout', {}, {withCredentials: true});
+      console.log('logout success');
+    } catch (error) {
+        console.error('logout failed:', error.response ? error.response.data : error.message);
+    }
+    resetCookies();
+  }
+
   useEffect(() => {
     initScriptImports(inventory, inventoryDispatch, gdisplayDispatch, location, setLocation, textboxDispatch, setInputMode, addLine, atShop, wallet, setWallet, recordsDispatch, volume);
 
@@ -93,6 +165,15 @@ function App() {
     }
 
     setLoaded(true);
+
+    const interval = setInterval(() => {
+      console.log('a minute has passed');
+      if (username !== '') {
+        saveUserData();
+      }      
+    }, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -104,10 +185,11 @@ function App() {
     displayLocation();
   }, [atShop]);
 
+
   return (
     <div className="App">
       {isLoaded && <>
-      <Header setDisplay={setDisplay}  volume={volume} />
+      <Header setDisplay={setDisplay}  volume={volume} username={username} logOut={logOut} />
 
       <div className='page-body'>
 
@@ -127,8 +209,8 @@ function App() {
           }
           {displayMode === 1 && <Records records={records} />}
           {displayMode === 2 && <About/>}
-          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} removeCookie={removeCookie} />}
-          {displayMode === 4 && <Login  setDisplay={setDisplay} />}
+          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} resetCookies={resetCookies} />}
+          {displayMode === 4 && <Login  setDisplay={setDisplay} inventory={inventory} wallet={wallet} records={records} loadUserData={loadUserData} setUser={setUsername} />}
         </div>
       </div>
     </>}
