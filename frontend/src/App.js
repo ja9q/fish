@@ -81,10 +81,12 @@ function App() {
 
       const recordsString = JSON.stringify(records);
 
+      console.log(username, inventoryString, wallet, recordsString)
+
       try {
         // attempt save
         const response = await axios.patch('http://localhost:8080/api/user/save', { username, inventoryString, wallet, recordsString }, {withCredentials: true});
-        console.log('save sucess: '+response.data)
+        console.log('save success: '+ JSON.stringify(response.data))
       } catch (error) {
           console.error('Save failed:', error.response ? error.response.data : error.message);
       }
@@ -95,6 +97,8 @@ function App() {
 
   function loadUserData(data) {
     // convert the strings of the userdata into JSON data
+    setCookie("username", data["username"])
+
     addLine("logged in: " + data["username"]);
 
     const inventoryData = [];
@@ -116,11 +120,13 @@ function App() {
 
   function loadCookies() {
     console.log('loading cookies');
+
     inventoryDispatch({"type": "set", "inventory": cookies["inventory"]});
     setWallet(cookies["wallet"]);
     recordsDispatch({"type": "set", "records": cookies["record"]});
     changeLocation(location.id, true);
     setVolume(cookies["volume"]);
+    setUsername(cookies["username"]);
   }
 
   function updateCookies() {
@@ -170,6 +176,7 @@ function App() {
       console.log('a minute has passed');
       if (username !== '') {
         saveUserData();
+        addLine('autosaving game...')
       }      
     }, 60000);
 
@@ -209,7 +216,7 @@ function App() {
           }
           {displayMode === 1 && <Records records={records} />}
           {displayMode === 2 && <About/>}
-          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} resetCookies={resetCookies} />}
+          {displayMode === 3 && <Settings volume={volume} setVolume={setVolume} resetCookies={resetCookies} saveUserData={saveUserData} addLine={addLine} />}
           {displayMode === 4 && <Login  setDisplay={setDisplay} inventory={inventory} wallet={wallet} records={records} loadUserData={loadUserData} setUser={setUsername} />}
         </div>
       </div>
