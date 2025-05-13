@@ -69,7 +69,7 @@ function App() {
   }
 
   async function saveUserData() {
-    if (username != '') {
+    if (cookies["username"] !== '') {
       console.log('attempting save...');
 
       // convert the current inventory/record into strings for the database
@@ -113,6 +113,7 @@ function App() {
     setShop(false);
     changeLocation(1, true);
 
+    setUsername(data["username"])
     inventoryDispatch({"type": "set", "inventory": inventoryData});
     setWallet(data["wallet"]);
     recordsDispatch({"type": "set", "records": recordsData});
@@ -149,6 +150,7 @@ function App() {
   async function logOut() {
     addLine("logged out: " + username);
     setUsername('');
+      setCookie("username", "")
     try {
       // attempt save
       const response = await axios.post('http://localhost:8080/api/auth/logout', {}, {withCredentials: true});
@@ -173,8 +175,9 @@ function App() {
     setLoaded(true);
 
     const interval = setInterval(() => {
-      console.log('a minute has passed');
-      if (username !== '') {
+      console.log('a minute has passed; username = '+ cookies["username"]);
+      if (cookies["username"] !== '') {
+        console.log('running saveUserData');
         saveUserData();
         addLine('autosaving game...')
       }      
