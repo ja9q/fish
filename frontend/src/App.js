@@ -69,7 +69,8 @@ function App() {
   }
 
   async function saveUserData() {
-    if (cookies["username"] !== '') {
+    console.log(username, cookies['username']);
+    if (username+cookies["username"] !== '') {
       console.log('attempting save...');
 
       // convert the current inventory/record into strings for the database
