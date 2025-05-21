@@ -55,15 +55,13 @@ public class AuthController {
         response.addCookie(jwt);
         
         System.out.println("added cookie: " + jwt.getValue());
-        
-        ResponseEntity<> response =  new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
-        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-        return response;
+        return ResponseEntity.ok()
+        		  .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+        		  .body(authenticatedUser);
       } catch (Exception e) {
-        
-        ResponseEntity<> response =  ResponseEntity<>("Invalid email/username or password", HttpStatus.BAD_REQUEST);
-        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-        return response;
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        		  .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+        		  .body("Invalid email/username or password");
       }
       
     }
@@ -74,23 +72,23 @@ public class AuthController {
         System.out.println("sign up attempt");
         // add check for username exists in a DB
         if(userRepository.existsByUsername(signUpDto.getUsername())){
-            ResponseEntity<> response =  ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
-            response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-            return response;
+        	return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          		  .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+          		  .body("Username is already taken!");
         }
 
         // add check for email exists in DB
         if(userRepository.existsByEmail(signUpDto.getEmail())){
-            ResponseEntity<> response =  ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
-            response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-            return response;
+        	return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            		  .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+            		  .body("Email is already taken!");
+            
         }
 
         User registeredUser = authenticationService.signup(signUpDto);
-
-        ResponseEntity<> response =  ResponseEntity<>(registeredUser, HttpStatus.OK);
-        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-        return response;
+        return ResponseEntity.ok()
+        		  .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+        		  .body(registeredUser);
     }
     
     @PostMapping("/auth/logout")
@@ -108,9 +106,7 @@ public class AuthController {
         
         response.addCookie(jwt);
 
-        ResponseEntity<> response =  ResponseEntity<>(HttpStatus.OK);
-        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-        return response;
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     
     
