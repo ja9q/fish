@@ -42,7 +42,7 @@ function Login({setDisplay, inventory, wallet, records, setUser, loadUserData}) 
           const recordsString = JSON.stringify(records);
 
           // attempt signup
-          const response = await axios.post('http://localhost:8080/api/auth/signup', { username, email, password, inventoryString, wallet, recordsString });
+          const response = await axios.post('https://fish-bq1n.onrender.com/api/auth/signup', { username, email, password, inventoryString, wallet, recordsString });
 
           // signup success
           console.log(response.data);
@@ -62,7 +62,7 @@ function Login({setDisplay, inventory, wallet, records, setUser, loadUserData}) 
             return;
         }
 
-        const response = await axios.post('http://localhost:8080/api/auth/login', { username, password }, {withCredentials: true});
+        const response = await axios.post('https://fish-bq1n.onrender.com/api/auth/login', { username, password }, {withCredentials: true});
         console.log('Login successful:', response.data);
 
         // set username to show the session has a log in + load user data

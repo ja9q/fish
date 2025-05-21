@@ -86,7 +86,7 @@ function App() {
 
       try {
         // attempt save
-        const response = await axios.patch('http://localhost:8080/api/user/save', { username, inventoryString, wallet, recordsString }, {withCredentials: true});
+        const response = await axios.patch('https://fish-bq1n.onrender.com/api/user/save', { username, inventoryString, wallet, recordsString }, {withCredentials: true});
         console.log('save success: '+ JSON.stringify(response.data))
       } catch (error) {
           console.error('Save failed:', error.response ? error.response.data : error.message);
@@ -154,7 +154,7 @@ function App() {
       setCookie("username", "")
     try {
       // attempt save
-      const response = await axios.post('http://localhost:8080/api/auth/logout', {}, {withCredentials: true});
+      const response = await axios.post('https://fish-bq1n.onrender.com/api/auth/logout', {}, {withCredentials: true});
       console.log('logout success');
     } catch (error) {
         console.error('logout failed:', error.response ? error.response.data : error.message);

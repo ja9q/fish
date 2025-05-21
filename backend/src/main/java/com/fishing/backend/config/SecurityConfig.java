@@ -31,7 +31,7 @@ public class SecurityConfig {
     CorsConfigurationSource corsConfigurationSource() {
       CorsConfiguration configuration = new CorsConfiguration();
       
-      configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+      configuration.setAllowedOrigins(List.of("https://ja9q.github.io/fish/"));
       configuration.setAllowedMethods(List.of("GET","POST","PATCH"));
       configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
       configuration.setAllowCredentials(true);
