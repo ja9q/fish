@@ -56,11 +56,14 @@ public class AuthController {
         
         System.out.println("added cookie: " + jwt.getValue());
         
-        return new ResponseEntity<>(authenticatedUser, HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        ResponseEntity<> response =  new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
+        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        return response;
       } catch (Exception e) {
         
-        return new ResponseEntity<>("Invalid email/username or password", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-        
+        ResponseEntity<> response =  ResponseEntity<>("Invalid email/username or password", HttpStatus.BAD_REQUEST);
+        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        return response;
       }
       
     }
@@ -71,17 +74,23 @@ public class AuthController {
         System.out.println("sign up attempt");
         // add check for username exists in a DB
         if(userRepository.existsByUsername(signUpDto.getUsername())){
-            return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            ResponseEntity<> response =  ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
+            response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            return response;
         }
 
         // add check for email exists in DB
         if(userRepository.existsByEmail(signUpDto.getEmail())){
-            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            ResponseEntity<> response =  ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
+            response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            return response;
         }
 
         User registeredUser = authenticationService.signup(signUpDto);
 
-        return new ResponseEntity<>(registeredUser, HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        ResponseEntity<> response =  ResponseEntity<>(registeredUser, HttpStatus.OK);
+        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        return response;
     }
     
     @PostMapping("/auth/logout")
@@ -99,7 +108,9 @@ public class AuthController {
         
         response.addCookie(jwt);
 
-        return new ResponseEntity<>(HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        ResponseEntity<> response =  ResponseEntity<>(HttpStatus.OK);
+        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        return response;
     }
     
     

@@ -52,7 +52,9 @@ public class UserController {
       UserResponse userData = new UserResponse(currentUser);
       
       
-      return new ResponseEntity<>(userData, HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+      ResponseEntity<> response =  new ResponseEntity<>(userData, HttpStatus.OK);
+      response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+      return response;
     }
     
     @PatchMapping("/save")
@@ -73,17 +75,25 @@ public class UserController {
             		saveUser.setInventory(saveDto.getInventoryString());
             		saveUser.setWallet(saveDto.getWallet());
             		saveUser.setRecord(saveDto.getRecordsString());
-            		return new ResponseEntity<>(userRepository.save(saveUser), HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            		ResponseEntity<> response =  new ResponseEntity<>(userRepository.save(saveUser), HttpStatus.OK);
+                response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+                return response;
             	} else {
-            		return new ResponseEntity<>("Username does not match session username", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            		ResponseEntity<> response =  new ResponseEntity<>("Username does not match session username", HttpStatus.BAD_REQUEST);
+                response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+                return response;
             	}
             } else {
-            	return new ResponseEntity<>("User could not be found", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+            	ResponseEntity<> response =  new ResponseEntity<>("User could not be found", HttpStatus.BAD_REQUEST);
+              response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+              return response;
             }
             
             
     	} catch (Exception e) {
-    		return new ResponseEntity<>("Could not save", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+    		ResponseEntity<> response =  new ResponseEntity<>("Could not save", HttpStatus.BAD_REQUEST);
+        response.header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
+        return response;
     	}
         
       }
