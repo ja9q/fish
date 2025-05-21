@@ -87,7 +87,7 @@ function App() {
       try {
         // attempt save
         const response = await axios.patch('https://fish-bq1n.onrender.com/api/user/save', { username, inventoryString, wallet, recordsString }, {withCredentials: true});
-        console.log('save success: '+ JSON.stringify(response.data))
+        console.log('save success: '+ JSON.stringify(response.data)) 
       } catch (error) {
           console.error('Save failed:', error.response ? error.response.data : error.message);
       }

@@ -56,10 +56,10 @@ public class AuthController {
         
         System.out.println("added cookie: " + jwt.getValue());
         
-        return new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
+        return new ResponseEntity<>(authenticatedUser, HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
       } catch (Exception e) {
         
-        return new ResponseEntity<>("Invalid email/username or password", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Invalid email/username or password", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
         
       }
       
@@ -71,17 +71,17 @@ public class AuthController {
         System.out.println("sign up attempt");
         // add check for username exists in a DB
         if(userRepository.existsByUsername(signUpDto.getUsername())){
-            return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
         }
 
         // add check for email exists in DB
         if(userRepository.existsByEmail(signUpDto.getEmail())){
-            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
         }
 
         User registeredUser = authenticationService.signup(signUpDto);
 
-        return new ResponseEntity<>(registeredUser, HttpStatus.OK);
+        return new ResponseEntity<>(registeredUser, HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
     }
     
     @PostMapping("/auth/logout")
@@ -99,7 +99,7 @@ public class AuthController {
         
         response.addCookie(jwt);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK).header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
     }
     
     
