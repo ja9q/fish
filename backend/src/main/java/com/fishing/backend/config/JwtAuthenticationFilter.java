@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@CrossOrigin(origins = "https://ja9q.github.io/fish/", allowCredentials = "true")
+@CrossOrigin(origins = "https://ja9q.github.io/", allowCredentials = "true")
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
   private final HandlerExceptionResolver handlerExceptionResolver;

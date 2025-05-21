@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "https://ja9q.github.io/fish/", allowCredentials = "true")
+@CrossOrigin(origins = "https://ja9q.github.io/", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
