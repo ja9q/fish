@@ -33,7 +33,7 @@ public class SecurityConfig {
       
       configuration.setAllowedOrigins(List.of("https://ja9q.github.io/"));
       configuration.setAllowedMethods(List.of("GET","POST","PATCH"));
-      configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
+      configuration.setAllowedHeaders(List.of("Origin","Authorization","Content-Type", "X-Auth-Token"));
       configuration.setAllowCredentials(true);
       configuration.setMaxAge(3600L); 
       
