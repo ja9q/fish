@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/fish/static/css/main.6ce6618d.css",
-    "main.js": "/fish/static/js/main.a4ca619c.js",
+    "main.css": "/fish/static/css/main.e28dcf66.css",
+    "main.js": "/fish/static/js/main.ba140bc2.js",
     "static/js/845.e58e3170.chunk.js": "/fish/static/js/845.e58e3170.chunk.js",
     "static/js/787.f354c90c.chunk.js": "/fish/static/js/787.f354c90c.chunk.js",
     "static/media/water_drip.mp3": "/fish/static/media/water_drip.00a7c7541276e5ab193f.mp3",
@@ -12,18 +12,19 @@
     "static/media/greenhornlake.png": "/fish/static/media/greenhornlake.36159831f44a58be2901.png",
     "static/media/click_light.mp3": "/fish/static/media/click_light.dc710dfdcbf2e1aecdfe.mp3",
     "static/media/click_01.mp3": "/fish/static/media/click_01.4661f620bc6ee7ae16ef.mp3",
+    "static/media/login.svg": "/fish/static/media/login.4db6b114eef98b39d82fe7f45e0f57e2.svg",
     "static/media/settings.svg": "/fish/static/media/settings.a2243644ebe60c64b992b023864292a1.svg",
     "static/media/fish.svg": "/fish/static/media/fish.545129529b5692537206c0c1252b0f51.svg",
     "static/media/about.svg": "/fish/static/media/about.7bfe7ce66c5dda6994eda739878be0cc.svg",
     "static/media/records.svg": "/fish/static/media/records.3237d7bac22bcd83b00d11bcb9012e68.svg",
     "index.html": "/fish/index.html",
-    "main.6ce6618d.css.map": "/fish/static/css/main.6ce6618d.css.map",
-    "main.a4ca619c.js.map": "/fish/static/js/main.a4ca619c.js.map",
+    "main.e28dcf66.css.map": "/fish/static/css/main.e28dcf66.css.map",
+    "main.ba140bc2.js.map": "/fish/static/js/main.ba140bc2.js.map",
     "845.e58e3170.chunk.js.map": "/fish/static/js/845.e58e3170.chunk.js.map",
     "787.f354c90c.chunk.js.map": "/fish/static/js/787.f354c90c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ce6618d.css",
-    "static/js/main.a4ca619c.js"
+    "static/css/main.e28dcf66.css",
+    "static/js/main.ba140bc2.js"
   ]
 }
