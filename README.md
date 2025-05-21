@@ -1,6 +1,7 @@
 # Fishing Game
 
 This is a webpage experience made entirely with React. You can play it [here](https://ja9q.github.io/fish/).
+(Please note that the backend is currently hosted on a service that spins down with inactivity. Certain actions may take several minutes in such cases.)
 
 <div align="center">
 <img src="screenshot.png" alt="a screenshot of the fishing game" height="300px">
