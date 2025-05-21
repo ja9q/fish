@@ -39,8 +39,9 @@ public class AuthController {
 
     @PostMapping("/auth/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginDto loginDto, HttpServletResponse response){
+      
+    	System.out.println("log in attempt");
       try {
-    	  System.out.println("log in attempt");
         User authenticatedUser = authenticationService.authenticate(loginDto);
         
         String jwtToken = jwtService.generateToken(authenticatedUser);
